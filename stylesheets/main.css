@@ -21,6 +21,8 @@ body {
   z-index: 2;
 }
 
+.side-menu.collapsed { width: 0; }
+
 .list-item {
   font-size: 80%;
   padding: 5px 10px;
@@ -38,3 +40,5 @@ body {
   padding-left: 155px;
   z-index: 1;
 }
+
+.main-view.full { padding-left: 0; }

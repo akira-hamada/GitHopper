@@ -19,3 +19,8 @@ global.renderReposList = (user) ->
 
     $('.list-item').on 'click', ->
       $("#repository-view").attr('src', $(this).data('url'))
+
+# サイドバーを開閉する
+global.toggleSidebar = ->
+  $('.side-menu').toggleClass('collapsed')
+  $('.main-view').toggleClass('full')
