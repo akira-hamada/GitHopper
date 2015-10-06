@@ -1,0 +1,79 @@
+body {
+  background-color: #222;
+  color: whitesmoke;
+}
+
+.container-fluid { padding: 0; }
+
+.navbar {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 0;
+}
+
+.tab-link {
+  font-size: 150%;
+  font-weight: bold;
+  border-right: 1px solid #080808;
+  padding: 10px;
+}
+
+.tab-link.active {
+  background-color: white;
+  color: black;
+}
+
+#net-connection-indicator {
+  background-color: red;
+  border-radius: 6px;
+  height: 12px;
+  position: absolute;
+  right: 154px;
+  top: 7px;
+  width: 12px;
+}
+
+#net-connection-indicator.connected { background-color: green; }
+
+.clock {
+  font-size: 110%;
+  position: absolute;
+  top: 3px;
+  right: 5px;
+}
+
+.dashboard {
+}
+
+.row {
+  margin: 40px 0 auto;
+}
+
+.indicator {
+  font-size: 400%;
+  display: inline-block;
+  margin-left: 50px;
+  margin: 15px 20px auto 30px;
+}
+
+.count {
+  display: inline-block;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.count-suffix {
+  color: #a9a9a9;
+  display: inline-block;
+  font-size: 35%;
+  margin-left: -10px;
+}
+
+#app-status {
+  background-color: #a9a9a9;
+  border-radius: 6px;
+  width: 12px;
+  height: 12px;
+}
