@@ -15,4 +15,4 @@ global.renderReposList = (user) ->
   user.repos (err, repos) =>
     sharewisRepos = repos.filter (repo) -> repo.owner.login == 'ShareWis'
     for repo in sharewisRepos
-      $('#repositories').append("<li>#{repo.name}</li>")
+      $('#repositories').append("<li class='list-item repo'>#{repo.name}</li>")
