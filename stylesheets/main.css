@@ -14,7 +14,11 @@ body {
   margin: 0;
   overflow-y: scroll;
   padding-left: 0;
+  width: 155px;
+  height: 100%;
   position: absolute;
+  vertical-align: top;
+  z-index: 2;
 }
 
 .list-item {
@@ -25,4 +29,12 @@ body {
 .list-item:hover {
   background-color: lightgray;
   cursor: pointer;
+}
+
+.main-view {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding-left: 155px;
+  z-index: 1;
 }

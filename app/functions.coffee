@@ -15,4 +15,7 @@ global.renderReposList = (user) ->
   user.repos (err, repos) =>
     sharewisRepos = repos.filter (repo) -> repo.owner.login == 'ShareWis'
     for repo in sharewisRepos
-      $('#repositories').append("<li class='list-item repo'>#{repo.name}</li>")
+      $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}'>#{repo.name}</li>")
+
+    $('.list-item').on 'click', ->
+      $("#repository-view").attr('src', $(this).data('url'))
