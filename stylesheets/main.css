@@ -17,6 +17,7 @@ body {
   width: 155px;
   height: 100%;
   position: absolute;
+  -webkit-user-select: none;
   vertical-align: top;
   z-index: 2;
 }
