@@ -32,14 +32,14 @@ body {
   text-overflow: ellipsis;
 }
 
-.list-item.active {
-  background-color: #afbbd2;
-  color: white;
-}
-
 .list-item:hover {
   background-color: lightgray;
   cursor: pointer;
+}
+
+.list-item.active {
+  background-color: #afbbd2;
+  color: white;
 }
 
 .list-item .octicon {
