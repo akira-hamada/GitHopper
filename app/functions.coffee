@@ -18,6 +18,8 @@ global.renderReposList = (user) ->
       $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}'>#{repo.name}</li>")
 
     $('.list-item').on 'click', ->
+      $('.list-item').removeClass('active')
+      $(this).addClass('active')
       $("#repository-view").attr('src', $(this).data('url'))
 
 # サイドバーを開閉する

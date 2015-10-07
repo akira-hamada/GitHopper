@@ -28,6 +28,12 @@ body {
   padding: 5px 10px;
 }
 
+.list-item.active {
+  background-color: #afbbd2;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
 .list-item:hover {
   background-color: lightgray;
   cursor: pointer;
