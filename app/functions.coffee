@@ -13,9 +13,9 @@ global.githubAuth = ->
 # レポジトリ一覧を表示する
 global.renderReposList = (user) ->
   user.repos (err, repos) =>
-    sharewisRepos = repos.filter (repo) -> repo.owner.login == 'ShareWis'
-    for repo in sharewisRepos
-      $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}'>#{repo.name}</li>")
+    privateRepos = repos.filter (repo) -> repo.owner.login == 'ShareWis' && repo.private
+    for repo in privateRepos
+      $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}'>#{repo.name}</li>")
 
     $('.list-item').on 'click', ->
       $("#repository-view").attr('src', $(this).data('url'))
