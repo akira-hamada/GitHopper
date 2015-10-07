@@ -15,7 +15,7 @@ global.renderReposList = (user) ->
   user.repos (err, repos) =>
     privateRepos = repos.filter (repo) -> repo.owner.login == 'ShareWis' && repo.private
     for repo in privateRepos
-      $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}'>#{repo.name}</li>")
+      $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
 
     $('.list-item').on 'click', ->
       $('.list-item').removeClass('active')

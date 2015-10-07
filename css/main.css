@@ -6,7 +6,7 @@ body {
 .container-fluid { padding: 0; }
 
 .side-menu {
-  background-color: whitesmoke;
+  background-color: #ececec;
   color: #222;
   height: 100%;
   left: 0;
@@ -14,7 +14,7 @@ body {
   margin: 0;
   overflow-y: scroll;
   padding-left: 0;
-  width: 155px;
+  width: 170px;
   height: 100%;
   position: absolute;
   -webkit-user-select: none;
@@ -27,12 +27,14 @@ body {
 .list-item {
   font-size: 80%;
   padding: 5px 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .list-item.active {
   background-color: #afbbd2;
-  color: whitesmoke;
-  font-weight: bold;
+  color: white;
 }
 
 .list-item:hover {
@@ -40,11 +42,16 @@ body {
   cursor: pointer;
 }
 
+.list-item .octicon {
+  font-size: 95%;
+  margin-right: 6px;
+}
+
 .main-view {
   position: absolute;
   height: 100%;
   width: 100%;
-  padding-left: 155px;
+  padding-left: 170px;
   z-index: 1;
 }
 
