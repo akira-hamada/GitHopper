@@ -57,3 +57,21 @@ body {
 
 .main-view.full { padding-left: 0; }
 .main-view.hide { display: none;; }
+
+#launch-logo {
+  position: absolute;
+  top: 25%; /* 上から半分 */
+  left: 38%; /* 左から半分 */
+}
+
+.launch-icon {
+  display: block;
+  font-size: 2000%;
+}
+.launch-text {
+  color: lightgray;
+  display: block;
+  font-size: 150%;
+  margin-top: 8px;
+  text-align: center;
+}

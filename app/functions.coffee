@@ -17,6 +17,10 @@ global.renderReposList = (user) ->
     for repo in privateRepos
       $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
 
+    $('#launch-logo').fadeOut 'fast', ->
+      $(this).remove()
+      $('#repositories').removeClass('collapsed')
+
     $('.list-item').on 'click', ->
       $('.list-item').removeClass('active')
       $(this).addClass('active')
