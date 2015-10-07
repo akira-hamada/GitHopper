@@ -20,7 +20,7 @@ global.renderReposList = (user) ->
     $('.list-item').on 'click', ->
       $('.list-item').removeClass('active')
       $(this).addClass('active')
-      $("#repository-view").attr('src', $(this).data('url'))
+      $("#repository-view").attr('src', $(this).data('url')).removeClass('hide')
 
 # サイドバーを開閉する
 global.toggleSidebar = ->

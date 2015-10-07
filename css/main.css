@@ -56,3 +56,4 @@ body {
 }
 
 .main-view.full { padding-left: 0; }
+.main-view.hide { display: none;; }
