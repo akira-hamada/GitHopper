@@ -14,3 +14,5 @@ loginUser.repos (err, repos) ->
     activateSelectedRepo(this)
 
 key '⌘+h, ctrl+h', toggleSidebar
+key '⌘+[, ctrl+[', browserBack
+key '⌘+], ctrl+]', browserForward

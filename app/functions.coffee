@@ -49,3 +49,6 @@ global.activateSelectedRepo = (selectedRepo) ->
 global.toggleSidebar = ->
   $('#sidebar').toggleClass('collapsed')
   $('#webview-wrapper').toggleClass('full')
+
+global.browserBack = -> $('.repository-viewer:not(.hide)')[0].goBack()
+global.browserForward = -> $('.repository-viewer:not(.hide)')[0].goForward()
