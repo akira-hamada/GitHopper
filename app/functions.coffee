@@ -10,10 +10,13 @@ global.githubAuth = ->
 
   return user
 
+# プライベートレポジトリを取得する
+global.setPrivateRepositories = (repositories) ->
+  this.repos = repositories.filter (repo) -> repo.owner.login == 'ShareWis' && repo.private
+
 # レポジトリ一覧を表示する
-global.renderReposList = (repos) ->
-  privateRepos = repos.filter (repo) -> repo.owner.login == 'ShareWis' && repo.private
-  for repo in privateRepos
+global.renderReposList = ->
+  for repo in this.repos
     $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
 
 # スプラッシュロゴを非表示にする

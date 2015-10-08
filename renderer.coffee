@@ -3,8 +3,10 @@ require('./app/constants.coffee')
 
 loginUser = githubAuth()
 
-loginUser.repos (err, repos) =>
-  renderReposList(repos)
+loginUser.repos (err, repos) ->
+  setPrivateRepositories(repos)
+
+  renderReposList()
   fadeOutLaunchLogo()
   onClickListEvent()
 
