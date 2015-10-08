@@ -56,7 +56,6 @@ body {
 }
 
 .repository-viewer.full { padding-left: 0; }
-.repository-viewer.hide { display: none;; }
 
 #launch-logo {
   position: absolute;
