@@ -5,7 +5,19 @@ body {
 
 .container-fluid { padding: 0; }
 
-.side-menu {
+.scroll-menu-wrapper {
+  position: absolute;
+  width: 170px;
+}
+
+.scroll-menu-wrapper > .scroll-pane {
+  left: 160px;
+  z-index: 2;
+}
+
+.scroll-menu-wrapper.collapsed { width: 0; }
+
+.repository-list {
   background-color: #ececec;
   color: #222;
   height: 100%;
@@ -14,15 +26,12 @@ body {
   margin: 0;
   overflow-y: scroll;
   padding-left: 0;
-  width: 170px;
   height: 100%;
   position: absolute;
   -webkit-user-select: none;
   vertical-align: top;
   z-index: 2;
 }
-
-.side-menu.collapsed { width: 0; }
 
 .list-item {
   font-size: 80%;
@@ -47,7 +56,7 @@ body {
   margin-right: 6px;
 }
 
-.repository-viewer {
+#webview-wrapper {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -55,7 +64,7 @@ body {
   z-index: 1;
 }
 
-.repository-viewer.full { padding-left: 0; }
+#webview-wrapper.full { padding-left: 0; }
 
 #launch-logo {
   position: absolute;

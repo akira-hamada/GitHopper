@@ -6,15 +6,20 @@
 
 <link rel="stylesheet" href="css/bootstrap_3.3.5.min.css">
 <link rel="stylesheet" href="css/octicons.css" >
+<link rel="stylesheet" href="css/nanoscroller.css">
 <link rel="stylesheet" href="css/main.css">
 
 <script src="lib/jquery-2.1.4.min.js"></script>
 <script src="lib/jquery_after.js"></script>
 <script src="keymaster.js"></script>
+<script src="lib/jquery.nanoscroller.min.js"></script>
 </head>
 
 <body>
-<ul id='repositories' class='side-menu collapsed'></ul>
+<div id='sidebar' class='scroll-menu-wrapper collapsed'>
+  <ul id='repositories' class='repository-list scroll-content'></ul>
+</div>
+
 <div id='webview-wrapper'></div>
 
 <div id='launch-logo'>

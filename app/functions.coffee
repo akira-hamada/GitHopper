@@ -24,11 +24,15 @@ global.renderReposList = ->
     $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
     $('#webview-wrapper').append("<webview id='#{repo.id}' class='repository-viewer hide' src='#{repo.html_url}' autosize='on'></webview>")
 
+  $('#sidebar').nanoScroller
+    contentClass: 'scroll-content'
+    paneClass: 'scroll-pane'
+
 # スプラッシュロゴを非表示にする
 global.fadeOutLaunchLogo = ->
   $('#launch-logo').fadeOut 'fast', ->
     $(this).remove()
-    $('#repositories').removeClass('collapsed')
+    $('#sidebar').removeClass('collapsed')
 
 # 選択されたレポジトリを表示する
 global.activateSelectedRepo = (selectedRepo) ->
@@ -43,5 +47,5 @@ global.activateSelectedRepo = (selectedRepo) ->
 
 # サイドバーを開閉する
 global.toggleSidebar = ->
-  $('.side-menu').toggleClass('collapsed')
-  $('.main-view').toggleClass('full')
+  $('#sidebar').toggleClass('collapsed')
+  $('#webview-wrapper').toggleClass('full')
