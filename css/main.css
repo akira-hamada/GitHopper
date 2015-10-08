@@ -15,6 +15,8 @@ body {
   z-index: 2;
 }
 
+.scroll-menu-wrapper > .scroll-pane > .nano-slider { background: rgba(0, 0, 0, .8); }
+
 .scroll-menu-wrapper.collapsed { width: 0; }
 
 .repository-list {
@@ -34,6 +36,7 @@ body {
 }
 
 .list-item {
+  margin-right: 10px;
   font-size: 80%;
   padding: 5px 10px;
   overflow: hidden;
