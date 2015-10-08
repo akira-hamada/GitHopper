@@ -30,9 +30,10 @@ global.renderReposList = ->
 
 # スプラッシュロゴを非表示にする
 global.fadeOutLaunchLogo = ->
-  $('#launch-logo').fadeOut 'fast', ->
+  $('#launch-logo').fadeOut 'normal', ->
     $(this).remove()
     $('#sidebar').removeClass('collapsed')
+    $('#default-webview').removeClass('invisible')
 
 # 選択されたレポジトリを表示する
 global.activateSelectedRepo = (selectedRepo) ->
@@ -48,6 +49,7 @@ global.activateSelectedRepo = (selectedRepo) ->
 # サイドバーを開閉する
 global.toggleSidebar = ->
   $('#sidebar').toggleClass('collapsed')
+  $('#default-webview').toggleClass('full')
   $('#webview-wrapper').toggleClass('full')
 
 global.browserBack = -> $('.repository-viewer:not(.hide)')[0].goBack()

@@ -11,6 +11,7 @@ loginUser.repos (err, repos) ->
   fadeOutLaunchLogo()
 
   $('.list-item').on 'click', ->
+    $('#default-webview').remove()
     activateSelectedRepo(this)
 
 key '⌘+h, ctrl+h', toggleSidebar

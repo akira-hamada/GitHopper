@@ -12,7 +12,7 @@ body {
 
 .scroll-menu-wrapper > .scroll-pane {
   left: 160px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .scroll-menu-wrapper > .scroll-pane > .nano-slider { background: rgba(0, 0, 0, .8); }
@@ -32,7 +32,7 @@ body {
   position: absolute;
   -webkit-user-select: none;
   vertical-align: top;
-  z-index: 2;
+  z-index: 3;
 }
 
 .list-item {
@@ -59,15 +59,21 @@ body {
   margin-right: 5px;
 }
 
+#default-webview,
 #webview-wrapper {
   position: absolute;
   height: 100%;
   width: 100%;
   padding-left: 170px;
-  z-index: 1;
 }
 
+#default-webview { z-index: 2; }
+#webview-wrapper { z-index: 1; }
+
+#default-webview.full,
 #webview-wrapper.full { padding-left: 0; }
+
+#default-webview.invisible { visibility: hidden; }
 
 #launch-logo {
   position: absolute;
