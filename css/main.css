@@ -47,7 +47,7 @@ body {
   margin-right: 6px;
 }
 
-.main-view {
+.repository-viewer {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -55,8 +55,8 @@ body {
   z-index: 1;
 }
 
-.main-view.full { padding-left: 0; }
-.main-view.hide { display: none;; }
+.repository-viewer.full { padding-left: 0; }
+.repository-viewer.hide { display: none;; }
 
 #launch-logo {
   position: absolute;

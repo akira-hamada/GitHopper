@@ -14,10 +14,15 @@ global.githubAuth = ->
 global.setPrivateRepositories = (repositories) ->
   this.repos = repositories.filter (repo) -> repo.owner.login == 'ShareWis' && repo.private
 
+# アクティブなレポジトリを初期化する
+global.initializeActiveRepository = ->
+  this.activeRepo = null
+
 # レポジトリ一覧を表示する
 global.renderReposList = ->
   for repo in this.repos
-    $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
+    $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
+    $('#webview-wrapper').append("<webview id='#{repo.id}' class='repository-viewer hide' src='#{repo.html_url}' autosize='on'></webview>")
 
 # スプラッシュロゴを非表示にする
 global.fadeOutLaunchLogo = ->
@@ -30,7 +35,10 @@ global.onClickListEvent = ->
   $('.list-item').on 'click', ->
     $('.list-item').removeClass('active')
     $(this).addClass('active')
-    $("#repository-view").attr('src', $(this).data('url')).removeClass('hide')
+
+    $('.repository-viewer').addClass('hide')
+    $("##{$(this).data('id')}").removeClass('hide')
+    this.activeRepo = $(this).data('id')
 
 # サイドバーを開閉する
 global.toggleSidebar = ->
