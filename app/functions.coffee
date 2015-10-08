@@ -30,15 +30,16 @@ global.fadeOutLaunchLogo = ->
     $(this).remove()
     $('#repositories').removeClass('collapsed')
 
-# リストクリック時の処理
-global.onClickListEvent = ->
-  $('.list-item').on 'click', ->
-    $('.list-item').removeClass('active')
-    $(this).addClass('active')
+# 選択されたレポジトリを表示する
+global.activateSelectedRepo = (selectedRepo) ->
+  repoId = $(selectedRepo).data('id')
 
-    $('.repository-viewer').addClass('hide')
-    $("##{$(this).data('id')}").removeClass('hide')
-    this.activeRepo = $(this).data('id')
+  $('.list-item').removeClass('active')
+  $(selectedRepo).addClass('active')
+
+  $('.repository-viewer').addClass('hide')
+  $("##{repoId}").removeClass('hide')
+  this.activeRepo = repoId
 
 # サイドバーを開閉する
 global.toggleSidebar = ->

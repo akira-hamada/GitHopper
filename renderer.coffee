@@ -9,6 +9,8 @@ loginUser.repos (err, repos) ->
 
   renderReposList()
   fadeOutLaunchLogo()
-  onClickListEvent()
+
+  $('.list-item').on 'click', ->
+    activateSelectedRepo(this)
 
 key '⌘+h, ctrl+h', toggleSidebar
