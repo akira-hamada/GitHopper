@@ -96,7 +96,12 @@ body {
 }
 .launch-text:hover { cursor: default; }
 
-#token-input { width: 100%; }
+.create-token-link {
+  color: skyblue;
+  float: right;
+  font-size: 90%;
+}
+
 .input-err-msg {
-  color: red;
+  color: #f3120e;
 }

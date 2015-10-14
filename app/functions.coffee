@@ -112,4 +112,5 @@ global.displayTokenInput = ->
           =>
             $('.input-err-msg').removeClass('hide')
 
-  $('#token-input').removeClass('hide').focus()
+  $('#token-input-wrapper').removeClass('hide')
+  $('#token-input').focus()
