@@ -68,6 +68,20 @@ global.toggleSidebar = ->
 global.browserBack = -> $('.repository-viewer:not(.hide)')[0].goBack()
 global.browserForward = -> $('.repository-viewer:not(.hide)')[0].goForward()
 
+# 次のレポジトリを選択する
+global.nextRepo = ->
+  $next = $('.repo.active').next()
+  $next = $('.repo:first-child') unless $next.hasClass('repo')
+
+  $next.click()
+
+# 前のレポジトリを選択する
+global.prevRepo = ->
+  $prev = $('.repo.active').prev()
+  $prev = $('.repo:last-child') unless $prev.hasClass('repo')
+
+  $prev.click()
+
 global.renderApplication = ->
   loginUser = githubAuth(localStorage.getItem('githubAccessToken'))
 

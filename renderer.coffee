@@ -5,6 +5,8 @@ global.Clipboard = require('clipboard')
 key '⌘+h, ctrl+h', toggleSidebar
 key '⌘+[, ctrl+[', browserBack
 key '⌘+], ctrl+]', browserForward
+key 'tab', nextRepo
+key 'shift+tab', prevRepo
 
 # 特定のクラスが付いたリンクはChromeで開く
 $('.js-open-in-chrome').on 'click', (e) =>
