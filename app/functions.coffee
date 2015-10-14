@@ -1,6 +1,6 @@
 # トークン認証後の処理
 global.afterValidateToken = (token, successCallback, failureCallback) ->
-  user = githubUser(token)
+  user = githubAuth(token)
 
   user.notifications (err) ->
     if err == null
@@ -11,7 +11,7 @@ global.afterValidateToken = (token, successCallback, failureCallback) ->
       failureCallback()
 
 # GitHubの認証処理を実行する
-global.githubUser = (token) ->
+global.githubAuth = (token) ->
   Github = require('github-api')
 
   github = new Github(
@@ -68,7 +68,7 @@ global.browserBack = -> $('.repository-viewer:not(.hide)')[0].goBack()
 global.browserForward = -> $('.repository-viewer:not(.hide)')[0].goForward()
 
 global.renderApplication = ->
-  loginUser = githubUser(localStorage.getItem('githubAccessToken'))
+  loginUser = githubAuth(localStorage.getItem('githubAccessToken'))
 
   loginUser.repos (err, repos) ->
     setPrivateRepositories(repos)
