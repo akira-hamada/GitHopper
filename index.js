@@ -38,13 +38,14 @@ var template = [
   {
     label: 'GitHub Viewer',
     submenu: [
-      { label: 'GitHub Viewerを終了', accelerator: 'Command+Q', click: function () { app.quit(); } },
       { label: '環境設定...', accelerator: 'Command+,', click: function () {
-        // ブラウザ(Chromium)の起動, 初期画面のロード
-        prefWindow = new BrowserWindow({width: 500, height: 400});
-        prefWindow.loadUrl('file://' + __dirname + '/preference.html');
-        prefWindow.on('closed', function() { prefWindow = null; });
-      } },
+          // ブラウザ(Chromium)の起動, 初期画面のロード
+          prefWindow = new BrowserWindow({width: 500, height: 400});
+          prefWindow.loadUrl('file://' + __dirname + '/preference.html');
+          prefWindow.on('closed', function() { prefWindow = null; });
+        }
+      },
+      { label: 'GitHub Viewerを終了', accelerator: 'Command+Q', click: function () { app.quit(); } },
     ]
   },
   {
