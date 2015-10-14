@@ -26,9 +26,17 @@ global.githubAuth = (token) ->
 global.filterRepositoryByPreference = (repositories) ->
   this.repos = repositories.filter (repo) ->
     if localStorage.getItem('only_private_repo') == '1'
-      repo.owner.login == 'ShareWis' && repo.private
+      if localStorage.getItem('owner')? && localStorage.getItem('owner') != ''
+        isMatchedRepo = repo.owner.login == localStorage.getItem('owner') && repo.private
+      else
+        isMatchedRepo = repo.private
     else
-      repo.owner.login == 'ShareWis'
+      if localStorage.getItem('owner')? && localStorage.getItem('owner') != ''
+        isMatchedRepo = repo.owner.login == localStorage.getItem('owner')
+      else
+        isMatchedRepo = true
+
+    isMatchedRepo
 
 # アクティブなレポジトリを初期化する
 global.initializeActiveRepository = ->

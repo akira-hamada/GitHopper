@@ -3,5 +3,9 @@ body {
   padding: 20px;
 }
 
+.pref-item { margin-bottom: 20px; }
+
 .pref-checkbox:hover,
 .pref-label:hover { cursor: pointer; }
+
+.pref-label { font-weight: normal; }

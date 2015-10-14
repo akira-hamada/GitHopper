@@ -12,3 +12,7 @@ $('#only-private-repo').on 'change', ->
     localStorage.setItem('only_private_repo', 1)
   else
     localStorage.setItem('only_private_repo', 0)
+
+$('#owner').val(localStorage.getItem('owner')) if localStorage.getItem('owner')?
+
+$('#owner').on 'change', -> localStorage.setItem('owner', $(this).val())
