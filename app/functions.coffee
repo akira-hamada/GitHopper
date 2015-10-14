@@ -46,6 +46,7 @@ global.fadeOutLaunchLogo = ->
     $(this).remove()
     $('#sidebar').removeClass('collapsed')
     $('#default-webview').removeClass('invisible')
+    $('body').css('background-color', 'white')
 
 # 選択されたレポジトリを表示する
 global.activateSelectedRepo = (selectedRepo) ->
