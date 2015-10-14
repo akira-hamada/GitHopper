@@ -45,6 +45,7 @@ var template = [
           prefWindow.on('closed', function() { prefWindow = null; });
         }
       },
+      { type: 'separator' },
       { label: 'GitHub Viewerを終了', accelerator: 'Command+Q', click: function () { app.quit(); } },
     ]
   },
