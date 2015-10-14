@@ -1,14 +1,26 @@
+# トークン認証後の処理
+global.afterValidateToken = (token, successCallback, failureCallback) ->
+  user = githubUser(token)
+
+  user.notifications (err) ->
+    if err == null
+      console.log 'GitHub Valid Token!! :)'
+      successCallback()
+    else
+      console.log 'GitHub Invalid Token ;('
+      failureCallback()
+
 # GitHubの認証処理を実行する
-global.githubAuth = ->
+global.githubUser = (token) ->
   Github = require('github-api')
 
   github = new Github(
-    token: GITHUB_ACCESS_TOKEN
+    token: token
     auth: "oauth"
   )
   user = github.getUser()
 
-  return user
+  return user if user?
 
 # プライベートレポジトリを取得する
 global.setPrivateRepositories = (repositories) ->
@@ -54,3 +66,50 @@ global.toggleSidebar = ->
 
 global.browserBack = -> $('.repository-viewer:not(.hide)')[0].goBack()
 global.browserForward = -> $('.repository-viewer:not(.hide)')[0].goForward()
+
+global.renderApplication = ->
+  loginUser = githubUser(localStorage.getItem('githubAccessToken'))
+
+  loginUser.repos (err, repos) ->
+    setPrivateRepositories(repos)
+    initializeActiveRepository()
+
+    renderReposList()
+    fadeOutLaunchLogo()
+
+    $('.list-item').on 'click', ->
+      $('#default-webview').remove()
+      activateSelectedRepo(this)
+
+global.displayTokenInput = ->
+  $('.launch-text').addClass('hide')
+
+  # #token-inputにフォーカスしている場合のみ、 returnキー押下で値を取得する
+  #   https://github.com/madrobby/keymaster#filter-key-presses
+  $('#token-input').on 'focus', ->
+    key.filter = (event) ->
+      tagName = (event.target || event.srcElement).tagName
+      key.setScope(/^INPUT$/.test(tagName) ? 'input' : 'other')
+
+      return true
+
+    key '⌘+a, ctrl+a', => $(this).select()
+    key '⌘+v, ctrl+v', => $(this).val(Clipboard.readText())
+    key '⌘+c, ctrl+c', => Clipboard.writeText($(this).val())
+    key '⌘+x, ctrl+x', =>
+      Clipboard.writeText($(this).val())
+      $(this).val('')
+
+    key 'return', =>
+      # トークンがinvalidな時の処理を追加
+      if $(this).val() != ''
+        afterValidateToken $(this).val(),
+          =>
+            $('.input-err-msg').addClass('hide')
+            localStorage.setItem('githubAccessToken', $(this).val())
+            $(this).val('')
+            renderApplication()
+          =>
+            $('.input-err-msg').removeClass('hide')
+
+  $('#token-input').removeClass('hide').focus()

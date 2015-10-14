@@ -79,16 +79,24 @@ body {
   position: absolute;
   top: 25%; /* 上から半分 */
   left: 38%; /* 左から半分 */
+  text-align: center;
+  z-index: 1;
 }
 
 .launch-icon {
   display: block;
   font-size: 2000%;
+  margin-bottom: 8px;
 }
 .launch-text {
   color: lightgray;
   display: block;
   font-size: 150%;
-  margin-top: 8px;
-  text-align: center;
+  -webkit-user-select: none;
+}
+.launch-text:hover { cursor: default; }
+
+#token-input { width: 100%; }
+.input-err-msg {
+  color: red;
 }
