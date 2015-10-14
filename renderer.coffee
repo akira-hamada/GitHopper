@@ -5,6 +5,9 @@ global.Clipboard = require('clipboard')
 key '⌘+h, ctrl+h', toggleSidebar
 key '⌘+[, ctrl+[', browserBack
 key '⌘+], ctrl+]', browserForward
+key '⌘+shift+r, ctrl+shift+r', browserReload
+key '⌘+p, ctrl+p', displayPR
+key '⌘+i, ctrl+i', displayIssues
 key 'tab', nextRepo
 key 'shift+tab', prevRepo
 
