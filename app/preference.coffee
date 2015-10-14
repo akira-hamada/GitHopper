@@ -15,4 +15,4 @@ $('#only-private-repo').on 'change', ->
 
 $('#owner').val(localStorage.getItem('owner')) if localStorage.getItem('owner')?
 
-$('#owner').on 'change', -> localStorage.setItem('owner', $(this).val())
+$('#owner').on 'keyup', -> localStorage.setItem('owner', $(this).val())
