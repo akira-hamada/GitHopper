@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Preferences</title>
+
+<link rel="stylesheet" href="css/bootstrap_3.3.5.min.css">
+<link rel="stylesheet" href="css/octicons.css" >
+<link rel="stylesheet" href="css/preference.css">
+
+<script src="lib/jquery-2.1.4.min.js"></script>
+<script src="lib/jquery_after.js"></script>
+</head>
+
+<body>
+
+<div class='pref-repository-list'>
+  <input type='checkbox' name='only-private-repo' value='1' id='only-private-repo' class='pref-checkbox'>
+  <label for='only-private-repo' class='pref-label'>プライベートレポジトリーのみ表示</label>
+</div>
+
+<script>
+  require('coffee-script/register');
+  require('./app/preference.coffee');
+</script>
+
+</body>
+</html>

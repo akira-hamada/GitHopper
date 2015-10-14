@@ -11,6 +11,7 @@ var Menu = require('menu');
 require('crash-reporter').start();
 
 var mainWindow = null;
+var prefWindow = null;
 
 app.on('window-all-closed', function() {
   if (process.platform != 'darwin')
@@ -37,7 +38,13 @@ var template = [
   {
     label: 'GitHub Viewer',
     submenu: [
-      { label: 'GitHub Viewerを終了', accelerator: 'Command+Q', click: function () { app.quit(); } }
+      { label: 'GitHub Viewerを終了', accelerator: 'Command+Q', click: function () { app.quit(); } },
+      { label: '環境設定...', accelerator: 'Command+,', click: function () {
+        // ブラウザ(Chromium)の起動, 初期画面のロード
+        prefWindow = new BrowserWindow({width: 500, height: 400});
+        prefWindow.loadUrl('file://' + __dirname + '/preference.html');
+        prefWindow.on('closed', function() { prefWindow = null; });
+      } },
     ]
   },
   {

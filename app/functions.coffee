@@ -22,9 +22,13 @@ global.githubAuth = (token) ->
 
   return user if user?
 
-# プライベートレポジトリを取得する
-global.setPrivateRepositories = (repositories) ->
-  this.repos = repositories.filter (repo) -> repo.owner.login == 'ShareWis' && repo.private
+# レポジトリを設定によってフィルタリングする
+global.filterRepositoryByPreference = (repositories) ->
+  this.repos = repositories.filter (repo) ->
+    if localStorage.getItem('only_private_repo') == '1'
+      repo.owner.login == 'ShareWis' && repo.private
+    else
+      repo.owner.login == 'ShareWis'
 
 # アクティブなレポジトリを初期化する
 global.initializeActiveRepository = ->
@@ -105,7 +109,8 @@ global.renderApplication = ->
   loginUser = githubAuth(localStorage.getItem('githubAccessToken'))
 
   loginUser.repos (err, repos) ->
-    setPrivateRepositories(repos)
+    filterRepositoryByPreference(repos)
+
     initializeActiveRepository()
 
     renderReposList()

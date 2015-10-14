@@ -1,0 +1,7 @@
+body {
+  background-color: #ededed;
+  padding: 20px;
+}
+
+.pref-checkbox:hover,
+.pref-label:hover { cursor: pointer; }
