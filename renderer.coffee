@@ -1,6 +1,5 @@
 require('./app/functions.coffee')
 require('./app/constants.coffee')
-global.Clipboard = require('clipboard')
 
 key '⌘+h, ctrl+h', toggleSidebar
 key '⌘+[, ctrl+[', browserBack

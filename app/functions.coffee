@@ -140,13 +140,6 @@ global.displayTokenInput = ->
 
       return true
 
-    key '⌘+a, ctrl+a', => $(this).select()
-    key '⌘+v, ctrl+v', => $(this).val(Clipboard.readText())
-    key '⌘+c, ctrl+c', => Clipboard.writeText($(this).val())
-    key '⌘+x, ctrl+x', =>
-      Clipboard.writeText($(this).val())
-      $(this).val('')
-
     key 'return', =>
       # トークンがinvalidな時の処理を追加
       if $(this).val() != ''
