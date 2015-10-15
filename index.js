@@ -61,7 +61,7 @@ var template = [
   {
     label: 'ビュー',
     submenu: [
-      { label: '再読み込み', accelerator: 'Command+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
+      { label: '再読み込み', accelerator: 'Shift+Command+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
       { label: '開発者ツール', accelerator: 'Alt+Command+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
       { label: 'Cut', accelerator: 'Cmd+X', selector: 'cut:' },
       { label: 'Copy', accelerator: 'Cmd+C', selector: 'copy:' },

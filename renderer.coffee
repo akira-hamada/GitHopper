@@ -4,7 +4,7 @@ require('./app/constants.coffee')
 key '⌘+h, ctrl+h', toggleSidebar
 key '⌘+[, ctrl+[', browserBack
 key '⌘+], ctrl+]', browserForward
-key '⌘+shift+r, ctrl+shift+r', browserReload
+key '⌘+r, ctrl+r', browserReload
 key '⌘+p, ctrl+p', displayPR
 key '⌘+i, ctrl+i', displayIssues
 key 'tab', nextRepo
