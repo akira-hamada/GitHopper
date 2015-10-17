@@ -108,13 +108,17 @@ body {
 
 #pr-issue-search-box {
   background-color: #222;
-  font-size: 200%;
+  bottom: 0;
   color: white;
+  display: block;
+  font-size: 200%;
   height: 70px;
-  left: 35%;
+  left: 0;
+  margin: auto;
   opacity: 0.9;
   position: absolute;
-  top: 40%;
+  right: 0;
+  top: 0;
   width: 300px;
   z-index: 999;
 }
