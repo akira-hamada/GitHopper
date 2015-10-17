@@ -1,5 +1,5 @@
-require('./app/functions.coffee')
-require('./app/constants.coffee')
+require('./functions.coffee')
+require('./constants.coffee')
 
 key '⌘+h, ctrl+h', toggleSidebar
 key '⌘+[, ctrl+[', browserBack
