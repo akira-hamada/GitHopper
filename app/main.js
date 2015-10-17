@@ -63,10 +63,6 @@ var template = [
     submenu: [
       { label: '再読み込み', accelerator: 'Shift+Command+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
       { label: '開発者ツール', accelerator: 'Alt+Command+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
-      { label: 'Cut', accelerator: 'Cmd+X', selector: 'cut:' },
-      { label: 'Copy', accelerator: 'Cmd+C', selector: 'copy:' },
-      { label: 'Paste', accelerator: 'Cmd+V', selector: 'paste:' },
-      { label: 'Select All', accelerator: 'Cmd+A', selector: 'selectAll:' },
       // { label: 'サイドバーを開閉', accelerator: 'Command+H', click: function() { BrowserWindow.getFocusedWindow().toggleSidebar(); } }
     ]
   },
