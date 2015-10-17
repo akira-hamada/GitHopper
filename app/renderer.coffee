@@ -9,6 +9,11 @@ key '⌘+p, ctrl+p', displayPR
 key '⌘+i, ctrl+i', displayIssues
 key 'tab', nextRepo
 key 'shift+tab', prevRepo
+key "⌘+1, ctrl+1", (event, handler) -> $(".repo:first-child").click()
+key "⌘+9, ctrl+9", (event, handler) -> $(".repo:last-child").click()
+for n in [2..8]
+  key "⌘+#{n}, ctrl+#{n}", (event, handler) -> $(".repo:nth-child(#{handler.shortcut.split('+')[1]})").click()
+
 key '⌘+f, ctrl+f', displayPRIssueSearchBox
 key '⌘+t, ctrl+t', displayRepositoryTopPage
 

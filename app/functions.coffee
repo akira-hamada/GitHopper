@@ -98,6 +98,9 @@ global.prevRepo = ->
 
   $prev.click()
 
+# n番目のレポジトリを選択する
+global.nthRepo = (event, handler) -> $(".repo:nth-child(#{n})").click()
+
 # プルリクエスト一覧を表示する
 global.displayPR = ->
   url = new URL($('.repository-viewer:not(.hide)')[0].src)
