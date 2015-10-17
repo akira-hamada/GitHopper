@@ -52,6 +52,9 @@ global.renderReposList = ->
     contentClass: 'scroll-content'
     paneClass: 'scroll-pane'
 
+  $('webview').on 'did-start-loading', -> $('title').text('Loading...')
+  $('webview').on 'did-stop-loading', -> $('title').text($(this)[0].getTitle())
+
 # スプラッシュロゴを非表示にする
 global.fadeOutLaunchLogo = ->
   $('#launch-logo').fadeOut 'normal', ->
