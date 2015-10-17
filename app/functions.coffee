@@ -163,6 +163,7 @@ global.renderApplication = ->
     $('.list-item').on 'click', ->
       $('#default-webview').remove()
       activateSelectedRepo(this)
+      $('title').text($('.repository-viewer:not(.hide)')[0].getTitle())
 
 # 今開いているレポジトリのjQueryオブジェクトを返す
 getCurrentRepository = ->
