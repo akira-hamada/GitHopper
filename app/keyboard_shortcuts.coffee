@@ -15,6 +15,7 @@ key.filter = (event) ->
 
 key '⌘+f, ctrl+f', displayPRIssueSearchBox
 key '⌘+s, ctrl+s', toggleSidebar
+key '⌘+o, ctrl+o', openInBrowser
 key '⌘+[, ctrl+[', browserBack
 key '⌘+], ctrl+]', browserForward
 key '⌘+r, ctrl+r', browserReload

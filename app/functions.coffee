@@ -158,3 +158,7 @@ global.displayTokenInput = ->
 
   $('#token-input-wrapper').removeClass('hide')
   $('#token-input').focus()
+
+# 現在見ているページをブラウザで開く
+global.openInBrowser = ->
+  require("shell").openExternal(getCurrentRepository()[0].src)
