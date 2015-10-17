@@ -14,7 +14,7 @@ key "⌘+9, ctrl+9", (event, handler) -> $(".repo:last-child").click()
 for n in [2..8]
   key "⌘+#{n}, ctrl+#{n}", (event, handler) -> $(".repo:nth-child(#{handler.shortcut.split('+')[1]})").click()
 
-key '⌘+f, ctrl+f', displayPRIssueSearchBox
+require('./keyboard_shortcuts.coffee')
 key '⌘+t, ctrl+t', displayRepositoryTopPage
 
 # 特定のクラスが付いたリンクはChromeで開く

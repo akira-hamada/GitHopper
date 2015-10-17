@@ -121,31 +121,6 @@ global.displayPRIssueSearchBox = ->
   $('#pr-issue-search-box').removeClass('hide').focus()
   $('#search-black-screen').removeClass('hide')
 
-  $('#pr-issue-search-box').on 'focus', ->
-    key.filter = (event) ->
-      tagName = (event.target || event.srcElement).tagName
-      key.setScope(/^INPUT$/.test(tagName) ? 'input' : 'other')
-
-      return true
-
-    key 'return', =>
-      if $(this).val() != ''
-        digits = $(this).val().match(/^\d+$/)
-        if digits?
-          getCurrentRepository().attr('src', "#{getCurrentRepositoryUrl()}/pull/#{digits[0]}")
-          $(this).val('').addClass('hide')
-          $('#search-black-screen').addClass('hide')
-        else
-          console.log "invalid format"
-
-    key 'esc', =>
-      $(this).val('').addClass('hide')
-      $('#search-black-screen').addClass('hide')
-
-  $('#pr-issue-search-box').on 'blur', ->
-    $(this).val('').addClass('hide')
-    $('#search-black-screen').addClass('hide')
-
 # レポジトリトップページを表示
 global.displayRepositoryTopPage = -> getCurrentRepository().attr('src', getCurrentRepositoryUrl())
 
@@ -166,11 +141,11 @@ global.renderApplication = ->
       $('title').text($('.repository-viewer:not(.hide)')[0].getTitle())
 
 # 今開いているレポジトリのjQueryオブジェクトを返す
-getCurrentRepository = ->
+global.getCurrentRepository = ->
   $('.repository-viewer:not(.hide)')
 
 # 今開いているレポジトリのURLを取得する
-getCurrentRepositoryUrl = ->
+global.getCurrentRepositoryUrl = ->
   url = new URL($('.repository-viewer:not(.hide)')[0].src)
   path = url.pathname.split('/')
   account = path[1]
@@ -180,27 +155,6 @@ getCurrentRepositoryUrl = ->
 
 global.displayTokenInput = ->
   $('.launch-text').addClass('hide')
-
-  # #token-inputにフォーカスしている場合のみ、 returnキー押下で値を取得する
-  #   https://github.com/madrobby/keymaster#filter-key-presses
-  $('#token-input').on 'focus', ->
-    key.filter = (event) ->
-      tagName = (event.target || event.srcElement).tagName
-      key.setScope(/^INPUT$/.test(tagName) ? 'input' : 'other')
-
-      return true
-
-    key 'return', =>
-      # トークンがinvalidな時の処理を追加
-      if $(this).val() != ''
-        afterValidateToken $(this).val(),
-          =>
-            $('.input-err-msg').addClass('hide')
-            localStorage.setItem('githubAccessToken', $(this).val())
-            $(this).val('')
-            renderApplication()
-          =>
-            $('.input-err-msg').removeClass('hide')
 
   $('#token-input-wrapper').removeClass('hide')
   $('#token-input').focus()
