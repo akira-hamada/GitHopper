@@ -1,7 +1,7 @@
 require('./functions.coffee')
 require('./constants.coffee')
 
-key '⌘+h, ctrl+h', toggleSidebar
+key '⌘+s, ctrl+s', toggleSidebar
 key '⌘+[, ctrl+[', browserBack
 key '⌘+], ctrl+]', browserForward
 key '⌘+r, ctrl+r', browserReload
