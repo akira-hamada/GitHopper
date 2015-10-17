@@ -76,10 +76,13 @@ body {
 #default-webview.invisible { visibility: hidden; }
 
 #launch-logo {
+  left: 0;
+  margin: auto;
   position: absolute;
-  top: 25%; /* 上から半分 */
-  left: 38%; /* 左から半分 */
+  right: 0;
   text-align: center;
+  top: 15%;
+  width: 320px;
   z-index: 1;
 }
 
