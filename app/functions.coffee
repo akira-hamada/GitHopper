@@ -143,6 +143,9 @@ global.displayPRIssueSearchBox = ->
     $(this).val('').addClass('hide')
     $('#search-black-screen').addClass('hide')
 
+# レポジトリトップページを表示
+global.displayRepositoryTopPage = -> getCurrentRepository().attr('src', getCurrentRepositoryUrl())
+
 global.renderApplication = ->
   loginUser = githubAuth(localStorage.getItem('githubAccessToken'))
 
