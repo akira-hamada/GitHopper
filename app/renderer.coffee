@@ -9,6 +9,7 @@ key '⌘+p, ctrl+p', displayPR
 key '⌘+i, ctrl+i', displayIssues
 key 'tab', nextRepo
 key 'shift+tab', prevRepo
+key '⌘+f, ctrl+f', displayPRIssueSearchBox
 
 # 特定のクラスが付いたリンクはChromeで開く
 $('.js-open-in-chrome').on 'click', (e) =>

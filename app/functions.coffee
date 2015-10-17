@@ -113,6 +113,36 @@ global.displayIssues = ->
 
   $('.repository-viewer:not(.hide)').attr('src', "#{url.origin}/#{account}/#{repoName}/issues")
 
+# RP/検索ボックスを表示
+global.displayPRIssueSearchBox = ->
+  $('#pr-issue-search-box').removeClass('hide').focus()
+  $('#search-black-screen').removeClass('hide')
+
+  $('#pr-issue-search-box').on 'focus', ->
+    key.filter = (event) ->
+      tagName = (event.target || event.srcElement).tagName
+      key.setScope(/^INPUT$/.test(tagName) ? 'input' : 'other')
+
+      return true
+
+    key 'return', =>
+      if $(this).val() != ''
+        digits = $(this).val().match(/^\d+$/)
+        if digits?
+          getCurrentRepository().attr('src', "#{getCurrentRepositoryUrl()}/pull/#{digits[0]}")
+          $(this).val('').addClass('hide')
+          $('#search-black-screen').addClass('hide')
+        else
+          console.log "invalid format"
+
+    key 'esc', =>
+      $(this).val('').addClass('hide')
+      $('#search-black-screen').addClass('hide')
+
+  $('#pr-issue-search-box').on 'blur', ->
+    $(this).val('').addClass('hide')
+    $('#search-black-screen').addClass('hide')
+
 global.renderApplication = ->
   loginUser = githubAuth(localStorage.getItem('githubAccessToken'))
 
@@ -127,6 +157,19 @@ global.renderApplication = ->
     $('.list-item').on 'click', ->
       $('#default-webview').remove()
       activateSelectedRepo(this)
+
+# 今開いているレポジトリのjQueryオブジェクトを返す
+getCurrentRepository = ->
+  $('.repository-viewer:not(.hide)')
+
+# 今開いているレポジトリのURLを取得する
+getCurrentRepositoryUrl = ->
+  url = new URL($('.repository-viewer:not(.hide)')[0].src)
+  path = url.pathname.split('/')
+  account = path[1]
+  repoName = path[2]
+
+  "#{url.origin}/#{account}/#{repoName}"
 
 global.displayTokenInput = ->
   $('.launch-text').addClass('hide')
