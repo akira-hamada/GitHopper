@@ -29,9 +29,8 @@ for n in [2..8]
   key "⌘+#{n}, ctrl+#{n}", (event, handler) -> $(".repo:nth-child(#{handler.shortcut.split('+')[1]})").click()
 
 key 'return', (event, handler) ->
-  # PR/Issue検索ボックスの場合
-  if event.target.id == 'pr-issue-search-box'
-    if $(event.target).val() != ''
+  if _isShortcutOnId('pr-issue-search-box')
+    unless _isEmptyInput()
       digits = $(event.target).val().match(/^\d+$/)
       if digits?
         getCurrentRepository().attr('src', "#{getCurrentRepositoryUrl()}/pull/#{digits[0]}")
@@ -39,10 +38,8 @@ key 'return', (event, handler) ->
         $('#search-black-screen').addClass('hide')
       else
         console.log "invalid format"
-
-  # GitHubトークン入力欄
-  else if event.target.id == 'token-input'
-    if $(event.target).val() != ''
+  else if _isShortcutOnId('token-input')
+    unless _isEmptyInput()
       afterValidateToken $(event.target).val(),
         =>
           $('.input-err-msg').addClass('hide')
@@ -54,11 +51,18 @@ key 'return', (event, handler) ->
 
 
 key 'esc', (event, handler) ->
-  # PR/Issue検索ボックスの場合
-  if event.target.id = 'pr-issue-search-box'
+  if _isShortcutOnId('pr-issue-search-box')
     $(event.target).val('').addClass('hide')
     $('#search-black-screen').addClass('hide')
 
 $('#pr-issue-search-box').on 'blur', ->
   $(this).val('').addClass('hide')
   $('#search-black-screen').addClass('hide')
+
+# 指定したIDで発生したショートカットならtrueを返す
+_isShortcutOnId = (id) ->
+  this.event.target.id == id
+
+# 入力欄が空ならtrue
+_isEmptyInput = ->
+  $(this.event.target).val() == ''
