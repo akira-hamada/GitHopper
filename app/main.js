@@ -25,7 +25,7 @@ app.on('ready', function() {
   Menu.setApplicationMenu(menu);
 
   // ブラウザ(Chromium)の起動, 初期画面のロード
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow = new BrowserWindow({width: 1200, height: 700});
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
   // ウィンドウが閉じた時の処理
