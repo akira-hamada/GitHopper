@@ -63,7 +63,7 @@ var template = [
     submenu: [
       { label: 'Close', accelerator: 'Command+W', click: function() { BrowserWindow.getFocusedWindow().close(); } },
       { label: 'Reload App', accelerator: 'Shift+Command+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
-      { label: 'Dev Tool', accelerator: 'Alt+Command+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
+      { label: 'Toggle DevTools', accelerator: 'Alt+Command+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
       // { label: 'サイドバーを開閉', accelerator: 'Command+H', click: function() { BrowserWindow.getFocusedWindow().toggleSidebar(); } }
     ]
   },
