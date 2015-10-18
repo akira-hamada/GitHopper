@@ -9,3 +9,9 @@ body {
 .pref-label:hover { cursor: pointer; }
 
 .pref-label { font-weight: normal; }
+
+.create-token-link {
+  float: right;
+  font-size: 90%;
+}
+
