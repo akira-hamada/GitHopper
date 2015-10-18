@@ -72,6 +72,7 @@ global.activateSelectedRepo = (selectedRepo) ->
 
   $('.repository-viewer').addClass('hide')
   $("##{repoId}").removeClass('hide')
+  $('title').text($("##{repoId}")[0].getTitle())
   this.activeRepo = repoId
 
 # サイドバーを開閉する
@@ -138,7 +139,6 @@ global.renderApplication = ->
     $('.list-item').on 'click', ->
       $('#default-webview').remove()
       activateSelectedRepo(this)
-      $('title').text($('.repository-viewer:not(.hide)')[0].getTitle())
 
 # 今開いているレポジトリのjQueryオブジェクトを返す
 global.getCurrentRepository = ->
