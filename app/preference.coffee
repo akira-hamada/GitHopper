@@ -1,6 +1,5 @@
 require('./functions.coffee')
 require('./constants.coffee')
-global.Clipboard = require('clipboard')
 
 # 特定のクラスが付いたリンクはChromeで開く
 $('.js-open-in-chrome').on 'click', (e) =>
