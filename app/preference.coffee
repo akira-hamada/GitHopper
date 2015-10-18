@@ -18,7 +18,6 @@ $('#only-private-repo').on 'change', ->
     localStorage.setItem('only_private_repo', 0)
 
 $('#owner').val(localStorage.getItem('owner')) if localStorage.getItem('owner')?
-
 $('#owner').on 'keyup', -> localStorage.setItem('owner', $(this).val())
 
 $('#github-access-token').val(localStorage.getItem('githubAccessToken')) if localStorage.getItem('githubAccessToken')?
