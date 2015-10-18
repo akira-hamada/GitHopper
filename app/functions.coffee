@@ -60,7 +60,7 @@ global.fadeOutLaunchLogo = ->
   $('#launch-logo').fadeOut 'normal', ->
     $(this).remove()
     $('#sidebar').removeClass('collapsed')
-    $('#default-webview').removeClass('invisible')
+    $('#default-webview').removeClass('invisible').focus()
     $('body').css('background-color', 'white')
 
 # 選択されたレポジトリを表示する
