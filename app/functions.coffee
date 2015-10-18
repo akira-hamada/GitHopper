@@ -122,7 +122,15 @@ global.displayPRIssueSearchBox = ->
   return if getCurrentRepository()[0] == undefined
 
   $('#pr-issue-search-box').removeClass('hide').focus()
-  $('#search-black-screen').removeClass('hide')
+  $('#black-screen').removeClass('hide')
+
+# キーボードショートカット一覧を表示
+global.displayKeyBoardShorCut = ->
+  $('#cheatsheet').toggleClass('hide')
+  $('#black-screen').toggleClass('hide')
+
+  unless $('#cheatsheet').hasClass('hide')
+    $('#cheatsheet').focus()
 
 # レポジトリトップページを表示
 global.displayRepositoryTopPage = -> getCurrentRepository().attr('src', getCurrentRepositoryUrl())

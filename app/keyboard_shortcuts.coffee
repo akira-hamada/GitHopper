@@ -22,6 +22,7 @@ key '⌘+r, ctrl+r', browserReload
 key '⌘+p, ctrl+p', displayPR
 key '⌘+i, ctrl+i', displayIssues
 key '⌘+t, ctrl+t', displayRepositoryTopPage
+key '⌘+/, ctrl+/', displayKeyBoardShorCut
 key 'tab', nextRepo
 key 'shift+tab', prevRepo
 key "⌘+1, ctrl+1", (event, handler) -> $(".repo:first-child").click()
@@ -36,7 +37,7 @@ key 'return', (event, handler) ->
       if digits?
         getCurrentRepository().attr('src', "#{getCurrentRepositoryUrl()}/pull/#{digits[0]}").focus()
         $(event.target).val('').addClass('hide')
-        $('#search-black-screen').addClass('hide')
+        $('#black-screen').addClass('hide')
       else
         console.log "invalid format"
   else if _isShortcutOnId('token-input')
@@ -54,11 +55,16 @@ key 'return', (event, handler) ->
 key 'esc', (event, handler) ->
   if _isShortcutOnId('pr-issue-search-box')
     $(event.target).val('').addClass('hide')
-    $('#search-black-screen').addClass('hide')
+    $('#black-screen').addClass('hide')
+    getCurrentRepository().focus()
+  else if not $('#cheatsheet').hasClass('hide')
+    $('#cheatsheet').addClass('hide')
+    $('#black-screen').addClass('hide')
+    getCurrentRepository().focus()
 
 $('#pr-issue-search-box').on 'blur', ->
   $(this).val('').addClass('hide')
-  $('#search-black-screen').addClass('hide')
+  $('#black-screen').addClass('hide')
 
 # 指定したIDで発生したショートカットならtrueを返す
 _isShortcutOnId = (id) ->

@@ -127,11 +127,49 @@ body {
 }
 #pr-issue-search-box:focus { border-color: transparent; }
 
-#search-black-screen {
+#black-screen {
   background-color: #222;
   position: absolute;
   opacity: 0.3;
   z-index: 998;
   width: 100%;
   height: 100%;
+}
+
+#cheatsheet {
+  border-radius: 5px;
+  background-color: #222;
+  bottom: 0;
+  color: white;
+  display: block;
+  height: 400px;
+  padding: 10px 30px;
+  left: 0;
+  margin: auto;
+  opacity: 0.9;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60%;
+  z-index: 999;
+}
+
+.cheatsheet-title {
+  text-align: center;
+  font-size: 150%;
+  margin-bottom: 20px;
+}
+
+.shortcut { margin-bottom: 10px; }
+
+.key {
+  background-color: white;
+  border-radius: 3px;
+  color: black;
+  display: inline-block;
+  font-size: 90%;
+  margin-left: 5px;
+  padding: 1px 3px;
+  text-align: center;
+  min-width: 19px;
 }
