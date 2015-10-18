@@ -71,7 +71,7 @@ global.activateSelectedRepo = (selectedRepo) ->
   $(selectedRepo).addClass('active')
 
   $('.repository-viewer').addClass('hide')
-  $("##{repoId}").removeClass('hide')
+  $("##{repoId}").removeClass('hide').focus()
   $('title').text($("##{repoId}")[0].getTitle())
   this.activeRepo = repoId
 

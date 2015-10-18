@@ -34,7 +34,7 @@ key 'return', (event, handler) ->
     unless _isEmptyInput()
       digits = $(event.target).val().match(/^\d+$/)
       if digits?
-        getCurrentRepository().attr('src', "#{getCurrentRepositoryUrl()}/pull/#{digits[0]}")
+        getCurrentRepository().attr('src', "#{getCurrentRepositoryUrl()}/pull/#{digits[0]}").focus()
         $(event.target).val('').addClass('hide')
         $('#search-black-screen').addClass('hide')
       else
