@@ -38,7 +38,7 @@ var template = [
   {
     label: 'GitHub Viewer',
     submenu: [
-      { label: '環境設定...', accelerator: 'Command+,', click: function () {
+      { label: 'Preferences', accelerator: 'Command+,', click: function () {
           // ブラウザ(Chromium)の起動, 初期画面のロード
           prefWindow = new BrowserWindow({width: 500, height: 400});
           prefWindow.loadUrl('file://' + __dirname + '/preference.html');
@@ -59,11 +59,11 @@ var template = [
     ]
   },
   {
-    label: 'ビュー',
+    label: 'View',
     submenu: [
       { label: 'Close', accelerator: 'Command+W', click: function() { BrowserWindow.getFocusedWindow().close(); } },
-      { label: '再読み込み', accelerator: 'Shift+Command+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
-      { label: '開発者ツール', accelerator: 'Alt+Command+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
+      { label: 'Reload App', accelerator: 'Shift+Command+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
+      { label: 'Dev Tool', accelerator: 'Alt+Command+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
       // { label: 'サイドバーを開閉', accelerator: 'Command+H', click: function() { BrowserWindow.getFocusedWindow().toggleSidebar(); } }
     ]
   },
