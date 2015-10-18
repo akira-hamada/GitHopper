@@ -119,6 +119,8 @@ global.displayIssues = ->
 
 # RP/検索ボックスを表示
 global.displayPRIssueSearchBox = ->
+  return if getCurrentRepository()[0] == undefined
+
   $('#pr-issue-search-box').removeClass('hide').focus()
   $('#search-black-screen').removeClass('hide')
 
