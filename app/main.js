@@ -46,7 +46,7 @@ var template = [
         }
       },
       { type: 'separator' },
-      { label: 'GitHub Viewerを終了', accelerator: 'Command+Q', click: function () { app.quit(); } },
+      { label: 'Quit GitHub Viewer', accelerator: 'Command+Q', click: function () { app.quit(); } },
     ]
   },
   {
