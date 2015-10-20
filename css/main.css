@@ -59,7 +59,6 @@ body {
   margin-right: 5px;
 }
 
-#default-webview,
 #webview-wrapper {
   position: absolute;
   height: 100%;
@@ -67,13 +66,9 @@ body {
   padding-left: 170px;
 }
 
-#default-webview { z-index: 2; }
 #webview-wrapper { z-index: 1; }
 
-#default-webview.full,
 #webview-wrapper.full { padding-left: 0; }
-
-#default-webview.invisible { visibility: hidden; }
 
 #launch-logo {
   left: 0;

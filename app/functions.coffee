@@ -44,6 +44,8 @@ global.initializeActiveRepository = ->
 
 # レポジトリ一覧を表示する
 global.renderReposList = ->
+  $('#webview-wrapper').append("<webview id='trending-repositories' class='repository-viewer invisible' src='https://github.com/trending' autosize='on'></webview>")
+
   for repo in this.repos
     $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
     $('#webview-wrapper').append("<webview id='#{repo.id}' class='repository-viewer hide' src='#{repo.html_url}' autosize='on'></webview>")
@@ -60,7 +62,7 @@ global.fadeOutLaunchLogo = ->
   $('#launch-logo').fadeOut 'normal', ->
     $(this).remove()
     $('#sidebar').removeClass('collapsed')
-    $('#default-webview').removeClass('invisible').focus()
+    $('#trending-repositories').removeClass('invisible').focus()
     $('body').css('background-color', 'white')
 
 # 選択されたレポジトリを表示する
@@ -78,7 +80,6 @@ global.activateSelectedRepo = (selectedRepo) ->
 # サイドバーを開閉する
 global.toggleSidebar = ->
   $('#sidebar').toggleClass('collapsed')
-  $('#default-webview').toggleClass('full')
   $('#webview-wrapper').toggleClass('full')
 
 global.browserBack = -> $('.repository-viewer:not(.hide)')[0].goBack()
@@ -152,7 +153,7 @@ global.renderApplication = ->
     fadeOutLaunchLogo()
 
     $('.list-item').on 'click', ->
-      $('#default-webview').remove()
+      $('#trending-repositories').remove()
       activateSelectedRepo(this)
 
 # 今開いているレポジトリのjQueryオブジェクトを返す
