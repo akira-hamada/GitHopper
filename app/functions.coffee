@@ -135,6 +135,11 @@ global.displayKeyBoardShorCut = ->
 # レポジトリトップページを表示
 global.displayRepositoryTopPage = -> getCurrentRepository().attr('src', getCurrentRepositoryUrl())
 
+# 現在表示中のページURLをコピー
+global.copycurrentUrl = ->
+  require('clipboard').writeText(getCurrentRepository()[0].src)
+  console.log getCurrentRepository()[0].src
+
 global.renderApplication = ->
   loginUser = githubAuth(localStorage.getItem('githubAccessToken'))
 

@@ -23,6 +23,7 @@ key '⌘+p, ctrl+p', displayPR
 key '⌘+i, ctrl+i', displayIssues
 key '⌘+t, ctrl+t', displayRepositoryTopPage
 key '⌘+/, ctrl+/', displayKeyBoardShorCut
+key '⌘+u, ctrl+u', copycurrentUrl
 key 'tab', nextRepo
 key 'shift+tab', prevRepo
 key "⌘+1, ctrl+1", (event, handler) -> $(".repo:first-child").click()
