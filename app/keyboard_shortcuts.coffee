@@ -2,6 +2,25 @@
 # キーボードショートカット定義ファイル
 # 主にkeymaster.js を使用 (https://github.com/madrobby/keymaster)
 # --------------------------------------
+ipc = require('ipc')
+
+ipc.on 'onShortcutTriggered', (arg) ->
+  switch arg
+    when 'Cmd+f' then displayPRIssueSearchBox()
+    when 'Cmd+i' then displayIssues()
+    when 'Cmd+j' then nextRepo()
+    when 'Cmd+k' then prevRepo()
+    when 'Cmd+o' then openInBrowser()
+    when 'Cmd+p' then displayPR()
+    when 'Cmd+r' then browserReload()
+    when 'Cmd+s' then toggleSidebar()
+    when 'Cmd+t' then displayRepositoryTopPage()
+    when 'Cmd+u' then copycurrentUrl()
+    when 'Cmd+/' then displayKeyBoardShorCut()
+    when 'Cmd+[' then browserBack()
+    when 'Cmd+]' then browserForward()
+    when 'Cmd+1' then $(".repo:first-child").click()
+    when 'Cmd+9' then $(".repo:last-child").click()
 
 # Inputにフォーカスしている場合もキーボードショートカットを有効にする
 #   https://github.com/madrobby/keymaster#filter-key-presses
@@ -13,21 +32,10 @@ key.filter = (event) ->
 
   return true
 
-key '⌘+f, ctrl+f', displayPRIssueSearchBox
-key '⌘+s, ctrl+s', toggleSidebar
-key '⌘+o, ctrl+o', openInBrowser
-key '⌘+[, ctrl+[, ⌘+left, ctrl+left, ⌘+h, ctrl+h', browserBack
-key '⌘+], ctrl+], ⌘+right, ctrl+right, ⌘+l, ctrl+l', browserForward
-key '⌘+r, ctrl+r', browserReload
-key '⌘+p, ctrl+p', displayPR
-key '⌘+i, ctrl+i', displayIssues
-key '⌘+t, ctrl+t', displayRepositoryTopPage
-key '⌘+/, ctrl+/', displayKeyBoardShorCut
-key '⌘+u, ctrl+u', copycurrentUrl
-key 'tab, ⌘+down, ctrl+down, ⌘+j, ctrl+j', nextRepo
-key 'shift+tab, ⌘+up, ctrl+up, ⌘+k, ctrl+k', prevRepo
-key "⌘+1, ctrl+1", (event, handler) -> $(".repo:first-child").click()
-key "⌘+9, ctrl+9", (event, handler) -> $(".repo:last-child").click()
+key '⌘+left, ctrl+left, ⌘+h, ctrl+h', browserBack
+key '⌘+right, ctrl+right, ⌘+l, ctrl+l', browserForward
+key 'tab, ⌘+down, ctrl+down', nextRepo
+key 'shift+tab, ⌘+up, ctrl+up', prevRepo
 for n in [2..8]
   key "⌘+#{n}, ctrl+#{n}", (event, handler) -> $(".repo:nth-child(#{handler.shortcut.split('+')[1]})").click()
 

@@ -64,7 +64,34 @@ var template = [
       { label: 'Close', accelerator: 'Command+W', click: function() { BrowserWindow.getFocusedWindow().close(); } },
       { label: 'Reload App', accelerator: 'Shift+Command+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
       { label: 'Toggle DevTools', accelerator: 'Alt+Command+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
-      { label: 'サイドバーを開閉', accelerator: 'Command+H', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Command+H'); } }
+      { label: 'Toggle Sidebar', accelerator: 'CommandOrControl+S', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+s'); } },
+      { type: 'separator' },
+      { label: 'Previous Repository', accelerator: 'CommandOrControl+K', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+k'); } },
+      { label: 'Next Repository', accelerator: 'CommandOrControl+J', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+j'); } },
+      { label: 'First Repository', accelerator: 'CommandOrControl+1', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+1'); } },
+      { label: 'Last Repository', accelerator: 'CommandOrControl+9', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+9'); } },
+      { type: 'separator' },
+      { label: 'Keyboard Shortcuts', accelerator: 'CommandOrControl+/', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+/'); } },
+    ]
+  },
+  {
+    label: 'History',
+    submenu: [
+      { label: 'Back', accelerator: 'CommandOrControl+[', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+['); } },
+      { label: 'Forward', accelerator: 'CommandOrControl+]', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+]'); } },
+      { label: 'Reload', accelerator: 'CommandOrControl+R', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+r'); } },
+      { type: 'separator' },
+      { label: 'Copy Current Page URL', accelerator: 'CommandOrControl+U', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+u'); } },
+      { label: 'Open In Browser', accelerator: 'CommandOrControl+O', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+o'); } },
+    ]
+  },
+  {
+    label: 'Repository',
+    submenu: [
+      { label: 'PR/Issue Search', accelerator: 'CommandOrControl+F', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+f'); } },
+      { label: 'Pull Requests',   accelerator: 'CommandOrControl+P', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+p'); } },
+      { label: 'Issues',          accelerator: 'CommandOrControl+I', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+i'); } },
+      { label: 'Repository Top',  accelerator: 'CommandOrControl+T', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+t'); } },
     ]
   },
 ];

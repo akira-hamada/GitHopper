@@ -1,7 +1,6 @@
 require('./functions.coffee')
 require('./constants.coffee')
 require('./keyboard_shortcuts.coffee')
-ipc = require('ipc')
 
 # 特定のクラスが付いたリンクはChromeで開く
 $('.js-open-in-chrome').on 'click', (e) =>
@@ -17,6 +16,3 @@ if localStorage.getItem('githubAccessToken')? && localStorage.getItem('githubAcc
       displayTokenInput()
 else
   displayTokenInput()
-
-ipc.on 'onShortcutTriggered', (arg) ->
-  console.log(arg)
