@@ -59,6 +59,17 @@ var template = [
     ]
   },
   {
+    label: 'History',
+    submenu: [
+      { label: 'Back', accelerator: 'CmdOrCtrl+[', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+['); } },
+      { label: 'Forward', accelerator: 'CmdOrCtrl+]', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+]'); } },
+      { label: 'Reload', accelerator: 'CmdOrCtrl+R', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+r'); } },
+      { type: 'separator' },
+      { label: 'Copy Current Page URL', accelerator: 'CmdOrCtrl+U', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+u'); } },
+      { label: 'Open In Browser', accelerator: 'CmdOrCtrl+O', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+o'); } },
+    ]
+  },
+  {
     label: 'View',
     submenu: [
       { label: 'Close', accelerator: 'Cmd+W', click: function() { BrowserWindow.getFocusedWindow().close(); } },
@@ -72,17 +83,6 @@ var template = [
       { label: 'Last Repository', accelerator: 'CmdOrCtrl+9', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+9'); } },
       { type: 'separator' },
       { label: 'Keyboard Shortcuts', accelerator: 'CmdOrCtrl+/', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+/'); } },
-    ]
-  },
-  {
-    label: 'History',
-    submenu: [
-      { label: 'Back', accelerator: 'CmdOrCtrl+[', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+['); } },
-      { label: 'Forward', accelerator: 'CmdOrCtrl+]', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+]'); } },
-      { label: 'Reload', accelerator: 'CmdOrCtrl+R', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+r'); } },
-      { type: 'separator' },
-      { label: 'Copy Current Page URL', accelerator: 'CmdOrCtrl+U', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+u'); } },
-      { label: 'Open In Browser', accelerator: 'CmdOrCtrl+O', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+o'); } },
     ]
   },
   {
