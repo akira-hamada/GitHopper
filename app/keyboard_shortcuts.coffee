@@ -17,8 +17,8 @@ ipc.on 'onShortcutTriggered', (arg) ->
     when 'Cmd+t' then displayRepositoryTopPage()
     when 'Cmd+u' then copycurrentUrl()
     when 'Cmd+/' then displayKeyBoardShorCut()
-    when 'Cmd+[' then browserBack()
-    when 'Cmd+]' then browserForward()
+    when 'Cmd+left' then browserBack()
+    when 'Cmd+right' then browserForward()
     when 'Cmd+1' then $(".repo:first-child").click()
     when 'Cmd+9' then $(".repo:last-child").click()
 
@@ -32,8 +32,10 @@ key.filter = (event) ->
 
   return true
 
-key '⌘+left, ctrl+left, ⌘+h, ctrl+h', browserBack
-key '⌘+right, ctrl+right, ⌘+l, ctrl+l', browserForward
+key '⌘+[, ctrl+[, ⌘+h, ctrl+h', browserBack
+key '⌘+], ctrl+], ⌘+l, ctrl+l', browserForward
+key '⌘⌘+h, ctrl+h', browserBack
+key '⌘+l, ctrl+l', browserForward
 key 'tab, ⌘+down, ctrl+down', nextRepo
 key 'shift+tab, ⌘+up, ctrl+up', prevRepo
 for n in [2..8]

@@ -61,8 +61,8 @@ var template = [
   {
     label: 'History',
     submenu: [
-      { label: 'Back', accelerator: 'CmdOrCtrl+[', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+['); } },
-      { label: 'Forward', accelerator: 'CmdOrCtrl+]', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+]'); } },
+      { label: 'Back', accelerator: 'CmdOrCtrl+Left', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+left'); } },
+      { label: 'Forward', accelerator: 'CmdOrCtrl+Right', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+right'); } },
       { label: 'Reload', accelerator: 'CmdOrCtrl+R', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+r'); } },
       { type: 'separator' },
       { label: 'Copy Current Page URL', accelerator: 'CmdOrCtrl+U', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+u'); } },
