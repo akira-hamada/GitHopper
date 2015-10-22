@@ -34,8 +34,6 @@ key.filter = (event) ->
 
 key '⌘+[, ctrl+[, ⌘+h, ctrl+h', browserBack
 key '⌘+], ctrl+], ⌘+l, ctrl+l', browserForward
-key '⌘⌘+h, ctrl+h', browserBack
-key '⌘+l, ctrl+l', browserForward
 key 'tab, ⌘+down, ctrl+down', nextRepo
 key 'shift+tab, ⌘+up, ctrl+up', prevRepo
 for n in [2..8]
