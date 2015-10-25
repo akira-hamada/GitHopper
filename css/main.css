@@ -33,7 +33,6 @@ body {
   margin: 0;
   overflow-y: scroll;
   padding-left: 0;
-  height: 100%;
   position: absolute;
   -webkit-user-select: none;
   vertical-align: top;
