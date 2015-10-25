@@ -1,6 +1,10 @@
 body {
   background-color: #222;
   color: whitesmoke;
+
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
 }
 
 .main-view {
