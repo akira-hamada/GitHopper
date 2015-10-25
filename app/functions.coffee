@@ -80,7 +80,6 @@ global.activateSelectedRepo = (selectedRepo) ->
 # サイドバーを開閉する
 global.toggleSidebar = ->
   $('#sidebar').toggleClass('collapsed')
-  $('#webview-wrapper').toggleClass('full')
 
 global.browserBack = -> getCurrentRepository()[0].goBack()
 global.browserForward = -> getCurrentRepository()[0].goForward()
