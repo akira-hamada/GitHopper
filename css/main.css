@@ -25,8 +25,8 @@ body {
 .scroll-menu-wrapper > .scroll-pane > .nano-slider { background: rgba(0, 0, 0, .8); }
 
 .repository-list {
-  background-color: #ececec;
-  color: #222;
+  background-color: #2e333b;
+  color: #b3b9bf;
   height: 100%;
   left: 0;
   list-style: none;
@@ -41,20 +41,16 @@ body {
 
 .list-item {
   margin-right: 10px;
-  font-size: 80%;
   padding: 5px 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.list-item:hover {
-  background-color: lightgray;
-  cursor: pointer;
-}
+.list-item:hover { cursor: pointer; }
 
 .list-item.active {
-  background-color: #afbbd2;
+  background-color: #002427;
   color: white;
 }
 
