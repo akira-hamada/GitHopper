@@ -3,12 +3,14 @@ body {
   color: whitesmoke;
 }
 
-.container-fluid { padding: 0; }
-
-.scroll-menu-wrapper {
+.main-view {
+  display: flex;
   position: absolute;
-  width: 170px;
+  height: 100%;
+  width: 100%;
 }
+
+.scroll-menu-wrapper { width: 170px; }
 
 .scroll-menu-wrapper > .scroll-pane {
   left: 160px;
@@ -60,15 +62,9 @@ body {
 }
 
 #webview-wrapper {
-  position: absolute;
+  flex: 1;
   height: 100%;
-  width: 100%;
-  padding-left: 170px;
 }
-
-#webview-wrapper { z-index: 1; }
-
-#webview-wrapper.full { padding-left: 0; }
 
 #launch-logo {
   left: 0;
