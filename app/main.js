@@ -40,9 +40,11 @@ var template = [
     submenu: [
       { label: 'Preferences', accelerator: 'Cmd+,', click: function () {
           // ブラウザ(Chromium)の起動, 初期画面のロード
-          prefWindow = new BrowserWindow({width: 500, height: 400, resizable: false});
-          prefWindow.loadUrl('file://' + __dirname + '/preference.html');
-          prefWindow.on('closed', function() { prefWindow = null; });
+          if(prefWindow == null) {
+            prefWindow = new BrowserWindow({width: 500, height: 400, resizable: false});
+            prefWindow.loadUrl('file://' + __dirname + '/preference.html');
+            prefWindow.on('closed', function() { prefWindow = null; });
+          }
         }
       },
       { type: 'separator' },
