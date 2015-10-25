@@ -10,7 +10,12 @@ body {
   width: 100%;
 }
 
-.scroll-menu-wrapper { width: 170px; }
+.scroll-menu-wrapper {
+  width: 170px;
+  transition: width 0.15s ease;
+}
+
+.scroll-menu-wrapper.collapsed { width: 0; }
 
 .scroll-menu-wrapper > .scroll-pane {
   left: 160px;
@@ -18,8 +23,6 @@ body {
 }
 
 .scroll-menu-wrapper > .scroll-pane > .nano-slider { background: rgba(0, 0, 0, .8); }
-
-.scroll-menu-wrapper.collapsed { width: 0; }
 
 .repository-list {
   background-color: #ececec;

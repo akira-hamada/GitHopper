@@ -61,7 +61,7 @@ global.renderReposList = ->
 global.fadeOutLaunchLogo = ->
   $('#launch-logo').fadeOut 'normal', ->
     $(this).remove()
-    $('#sidebar').removeClass('collapsed')
+    $('#sidebar').removeClass('hide')
     $('#trending-repositories').removeClass('invisible').focus()
     $('body').css('background-color', 'white')
 
