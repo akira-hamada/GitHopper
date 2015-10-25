@@ -62,7 +62,7 @@ global.fadeOutLaunchLogo = ->
   $('#launch-logo').fadeOut 'normal', ->
     $(this).remove()
     $('#sidebar').removeClass('hide')
-    $('#trending-repositories').removeClass('invisible').focus()
+    $('#trending-repositories').removeClass('invisible').focus().addClass('active')
     $('body').css('background-color', 'white')
 
 # 選択されたレポジトリを表示する
@@ -73,7 +73,7 @@ global.activateSelectedRepo = (selectedRepo) ->
   $(selectedRepo).addClass('active')
 
   $('.repository-viewer').addClass('hide')
-  $("##{repoId}").removeClass('hide').focus()
+  $("##{repoId}").removeClass('hide').focus().addClass('active')
   $('title').text($("##{repoId}")[0].getTitle())
   this.activeRepo = repoId
 
@@ -157,7 +157,7 @@ global.renderApplication = ->
 
 # 今開いているレポジトリのjQueryオブジェクトを返す
 global.getCurrentRepository = ->
-  $('.repository-viewer:not(.hide)')
+  $('.repository-viewer.active')
 
 # 今開いているレポジトリのURLを取得する
 global.getCurrentRepositoryUrl = ->
