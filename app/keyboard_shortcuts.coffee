@@ -3,6 +3,7 @@
 # 主にkeymaster.js を使用 (https://github.com/madrobby/keymaster)
 # --------------------------------------
 ipc = require('ipc')
+key = require('keymaster')
 
 ipc.on 'onShortcutTriggered', (arg) ->
   switch arg
