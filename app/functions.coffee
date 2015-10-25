@@ -101,6 +101,9 @@ global.prevRepo = ->
 
 # プルリクエスト一覧を表示する
 global.displayPR = ->
+  if getCurrentRepository()[0].id == 'trending-repositories'
+    return
+
   url = new URL(getCurrentRepository()[0].src)
   path = url.pathname.split('/')
   account = path[1]
@@ -110,6 +113,9 @@ global.displayPR = ->
 
 # issues一覧を表示する
 global.displayIssues = ->
+  if getCurrentRepository()[0].id == 'trending-repositories'
+    return
+
   url = new URL(getCurrentRepository()[0].src)
   path = url.pathname.split('/')
   account = path[1]
@@ -119,7 +125,8 @@ global.displayIssues = ->
 
 # RP/検索ボックスを表示
 global.displayPRIssueSearchBox = ->
-  return if getCurrentRepository()[0] == undefined
+  if getCurrentRepository()[0] == undefined || getCurrentRepository()[0].id == 'trending-repositories'
+    return
 
   $('#pr-issue-search-box').removeClass('hide').focus()
   $('#black-screen').removeClass('hide')
