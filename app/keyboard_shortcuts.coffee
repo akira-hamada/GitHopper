@@ -34,8 +34,8 @@ key.filter = (event) ->
 
 key '⌘+[, ctrl+[, ⌘+h, ctrl+h', browserBack
 key '⌘+], ctrl+], ⌘+l, ctrl+l', browserForward
-key 'tab, ⌘+down, ctrl+down', nextRepo
-key 'shift+tab, ⌘+up, ctrl+up', prevRepo
+key 'tab', nextRepo
+key 'shift+tab', prevRepo
 for n in [2..8]
   key "⌘+#{n}, ctrl+#{n}", (event, handler) -> $(".repo:nth-child(#{handler.shortcut.split('+')[1]})").click()
 
