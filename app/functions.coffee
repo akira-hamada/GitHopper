@@ -82,9 +82,9 @@ global.toggleSidebar = ->
   $('#sidebar').toggleClass('collapsed')
   $('#webview-wrapper').toggleClass('full')
 
-global.browserBack = -> $('.repository-viewer:not(.hide)')[0].goBack()
-global.browserForward = -> $('.repository-viewer:not(.hide)')[0].goForward()
-global.browserReload = -> $('.repository-viewer:not(.hide)')[0].reload()
+global.browserBack = -> getCurrentRepository()[0].goBack()
+global.browserForward = -> getCurrentRepository()[0].goForward()
+global.browserReload = -> getCurrentRepository()[0].reload()
 
 # 次のレポジトリを選択する
 global.nextRepo = ->
@@ -102,21 +102,21 @@ global.prevRepo = ->
 
 # プルリクエスト一覧を表示する
 global.displayPR = ->
-  url = new URL($('.repository-viewer:not(.hide)')[0].src)
+  url = new URL(getCurrentRepository()[0].src)
   path = url.pathname.split('/')
   account = path[1]
   repoName = path[2]
 
-  $('.repository-viewer:not(.hide)').attr('src', "#{url.origin}/#{account}/#{repoName}/pulls")
+  getCurrentRepository().attr('src', "#{url.origin}/#{account}/#{repoName}/pulls")
 
 # issues一覧を表示する
 global.displayIssues = ->
-  url = new URL($('.repository-viewer:not(.hide)')[0].src)
+  url = new URL(getCurrentRepository()[0].src)
   path = url.pathname.split('/')
   account = path[1]
   repoName = path[2]
 
-  $('.repository-viewer:not(.hide)').attr('src', "#{url.origin}/#{account}/#{repoName}/issues")
+  getCurrentRepository().attr('src', "#{url.origin}/#{account}/#{repoName}/issues")
 
 # RP/検索ボックスを表示
 global.displayPRIssueSearchBox = ->
@@ -162,7 +162,7 @@ global.getCurrentRepository = ->
 
 # 今開いているレポジトリのURLを取得する
 global.getCurrentRepositoryUrl = ->
-  url = new URL($('.repository-viewer:not(.hide)')[0].src)
+  url = new URL(getCurrentRepository()[0].src)
   path = url.pathname.split('/')
   account = path[1]
   repoName = path[2]
