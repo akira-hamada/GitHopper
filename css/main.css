@@ -52,8 +52,6 @@ body {
   text-overflow: ellipsis;
 }
 
-.list-item:hover { cursor: pointer; }
-
 .list-item.active {
   background-color: #002427;
   color: white;
