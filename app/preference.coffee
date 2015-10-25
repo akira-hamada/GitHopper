@@ -1,5 +1,4 @@
 require('./functions.coffee')
-require('./constants.coffee')
 
 # 特定のクラスが付いたリンクはChromeで開く
 $('.js-open-in-chrome').on 'click', (e) =>

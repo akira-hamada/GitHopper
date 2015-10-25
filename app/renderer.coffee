@@ -1,5 +1,4 @@
 require('./functions.coffee')
-require('./constants.coffee')
 require('./keyboard_shortcuts.coffee')
 
 # 特定のクラスが付いたリンクはChromeで開く
