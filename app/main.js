@@ -90,7 +90,9 @@ var template = [
     submenu: [
       { label: 'PR/Issue Search', accelerator: 'CmdOrCtrl+F', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+f'); } },
       { label: 'Pull Requests',   accelerator: 'CmdOrCtrl+P', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+p'); } },
+      { label: 'Closed Pull Requests',   accelerator: 'Shift+CmdOrCtrl+P', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+shift+p'); } },
       { label: 'Issues',          accelerator: 'CmdOrCtrl+I', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+i'); } },
+      { label: 'Closed Issues',          accelerator: 'Shift+CmdOrCtrl+I', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+shift+i'); } },
       { label: 'Repository Top',  accelerator: 'CmdOrCtrl+T', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+t'); } },
     ]
   },

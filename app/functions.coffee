@@ -111,6 +111,18 @@ global.displayPR = ->
 
   getCurrentRepository().attr('src', "#{url.origin}/#{account}/#{repoName}/pulls")
 
+# closed プルリクエスト一覧を表示する
+global.displayClosedPR = ->
+  if getCurrentRepository()[0].id == 'trending-repositories'
+    return
+
+  url = new URL(getCurrentRepository()[0].src)
+  path = url.pathname.split('/')
+  account = path[1]
+  repoName = path[2]
+
+  getCurrentRepository().attr('src', "#{url.origin}/#{account}/#{repoName}/pulls?q=is%3Apr+is%3Aclosed")
+
 # issues一覧を表示する
 global.displayIssues = ->
   if getCurrentRepository()[0].id == 'trending-repositories'
@@ -122,6 +134,18 @@ global.displayIssues = ->
   repoName = path[2]
 
   getCurrentRepository().attr('src', "#{url.origin}/#{account}/#{repoName}/issues")
+
+# closed issues一覧を表示する
+global.displayClosedIssues = ->
+  if getCurrentRepository()[0].id == 'trending-repositories'
+    return
+
+  url = new URL(getCurrentRepository()[0].src)
+  path = url.pathname.split('/')
+  account = path[1]
+  repoName = path[2]
+
+  getCurrentRepository().attr('src', "#{url.origin}/#{account}/#{repoName}/issues?q=is%3Aissue+is%3Aclosed")
 
 # RP/検索ボックスを表示
 global.displayPRIssueSearchBox = ->

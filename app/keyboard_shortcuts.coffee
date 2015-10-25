@@ -8,10 +8,12 @@ ipc.on 'onShortcutTriggered', (arg) ->
   switch arg
     when 'Cmd+f' then displayPRIssueSearchBox()
     when 'Cmd+i' then displayIssues()
+    when 'Cmd+shift+i' then displayClosedIssues()
     when 'Cmd+j' then nextRepo()
     when 'Cmd+k' then prevRepo()
     when 'Cmd+o' then openInBrowser()
     when 'Cmd+p' then displayPR()
+    when 'Cmd+shift+p' then displayClosedPR()
     when 'Cmd+r' then browserReload()
     when 'Cmd+s' then toggleSidebar()
     when 'Cmd+t' then displayRepositoryTopPage()
