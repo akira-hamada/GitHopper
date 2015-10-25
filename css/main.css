@@ -52,6 +52,8 @@ body {
   text-overflow: ellipsis;
 }
 
+.list-item:hover { cursor: default; }
+
 .list-item.active {
   background-color: #002427;
   color: white;
