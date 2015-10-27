@@ -104,7 +104,7 @@ global.displayPR = ->
   if getCurrentRepository()[0].id == 'trending-repositories'
     return
 
-  url = new URL(getCurrentRepository()[0].src)
+  url = new URL(getCurrentRepository()[0].getUrl())
   path = url.pathname.split('/')
   account = path[1]
   repoName = path[2]
@@ -116,7 +116,7 @@ global.displayClosedPR = ->
   if getCurrentRepository()[0].id == 'trending-repositories'
     return
 
-  url = new URL(getCurrentRepository()[0].src)
+  url = new URL(getCurrentRepository()[0].getUrl())
   path = url.pathname.split('/')
   account = path[1]
   repoName = path[2]
@@ -128,7 +128,7 @@ global.displayIssues = ->
   if getCurrentRepository()[0].id == 'trending-repositories'
     return
 
-  url = new URL(getCurrentRepository()[0].src)
+  url = new URL(getCurrentRepository()[0].getUrl())
   path = url.pathname.split('/')
   account = path[1]
   repoName = path[2]
@@ -140,7 +140,7 @@ global.displayClosedIssues = ->
   if getCurrentRepository()[0].id == 'trending-repositories'
     return
 
-  url = new URL(getCurrentRepository()[0].src)
+  url = new URL(getCurrentRepository()[0].getUrl())
   path = url.pathname.split('/')
   account = path[1]
   repoName = path[2]
@@ -168,8 +168,8 @@ global.displayRepositoryTopPage = -> getCurrentRepository().attr('src', getCurre
 
 # 現在表示中のページURLをコピー
 global.copycurrentUrl = ->
-  require('clipboard').writeText(getCurrentRepository()[0].src)
-  console.log getCurrentRepository()[0].src
+  require('clipboard').writeText(getCurrentRepository()[0].getUrl())
+  console.log getCurrentRepository()[0].getUrl()
 
 global.renderApplication = ->
   loginUser = githubAuth(localStorage.getItem('githubAccessToken'))
@@ -192,7 +192,7 @@ global.getCurrentRepository = ->
 
 # 今開いているレポジトリのURLを取得する
 global.getCurrentRepositoryUrl = ->
-  url = new URL(getCurrentRepository()[0].src)
+  url = new URL(getCurrentRepository()[0].getUrl())
   path = url.pathname.split('/')
   account = path[1]
   repoName = path[2]
@@ -207,4 +207,4 @@ global.displayTokenInput = ->
 
 # 現在見ているページをブラウザで開く
 global.openInBrowser = ->
-  require("shell").openExternal(getCurrentRepository()[0].src)
+  require("shell").openExternal(getCurrentRepository()[0].getUrl())
