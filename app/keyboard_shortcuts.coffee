@@ -78,7 +78,7 @@ key 'esc', (event, handler) ->
     $('#black-screen').addClass('hide')
     getCurrentRepository().focus()
   else if _isShortcutOnId('text-search-input')
-    $('#text-search-wrapper').addClass('hide')
+    $('#text-search-wrapper').removeClass('displayed')
     getCurrentRepository().focus()
 
 $('#pr-issue-search-box').on 'blur', ->

@@ -211,7 +211,7 @@ global.openInBrowser = ->
 
 # ページ内検索ボックスを表示
 global.displayTextSearchBox = ->
-  $('#text-search-wrapper').removeClass('hide')
+  $('#text-search-wrapper').addClass('displayed')
   $('#text-search-input').focus().select()
 
 # ページ内検索を実行する

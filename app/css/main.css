@@ -138,8 +138,11 @@ body {
   padding: 8px;
   position: absolute;
   right: 30px;
-  top: 0;
+  top: -100px;
+  transition: top 0.15s ease;
 }
+
+#text-search-wrapper.displayed { top: 0; }
 
 #text-search-input {
   height: 25px;
