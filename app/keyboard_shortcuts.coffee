@@ -8,6 +8,7 @@ key = require('keymaster')
 ipc.on 'onShortcutTriggered', (arg) ->
   switch arg
     when 'Cmd+f' then displayPRIssueSearchBox()
+    when 'Cmd+shift+f' then displayTextSearchBox()
     when 'Cmd+i' then displayIssues()
     when 'Cmd+shift+i' then displayClosedIssues()
     when 'Cmd+j' then nextRepo()
@@ -35,6 +36,7 @@ key.filter = (event) ->
 
   return true
 
+key '⌘+b', searchText
 key '⌘+[, ctrl+[, ⌘+h, ctrl+h', browserBack
 key '⌘+], ctrl+], ⌘+l, ctrl+l', browserForward
 key 'tab', nextRepo
@@ -62,7 +64,9 @@ key 'return', (event, handler) ->
           renderApplication()
         =>
           $('.input-err-msg').removeClass('hide')
-
+  else if _isShortcutOnId('text-search-input')
+    unless _isEmptyInput()
+      searchText($(event.target).val())
 
 key 'esc', (event, handler) ->
   if _isShortcutOnId('pr-issue-search-box')
@@ -72,6 +76,9 @@ key 'esc', (event, handler) ->
   else if not $('#cheatsheet').hasClass('hide')
     $('#cheatsheet').addClass('hide')
     $('#black-screen').addClass('hide')
+    getCurrentRepository().focus()
+  else if _isShortcutOnId('text-search-input')
+    $('#text-search-wrapper').addClass('hide')
     getCurrentRepository().focus()
 
 $('#pr-issue-search-box').on 'blur', ->

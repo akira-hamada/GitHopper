@@ -208,3 +208,12 @@ global.displayTokenInput = ->
 # 現在見ているページをブラウザで開く
 global.openInBrowser = ->
   require("shell").openExternal(getCurrentRepository()[0].getUrl())
+
+# ページ内検索ボックスを表示
+global.displayTextSearchBox = ->
+  $('#text-search-wrapper').removeClass('hide')
+  $('#text-search-input').focus().select()
+
+# ページ内検索を実行する
+global.searchText = (query) ->
+  getCurrentRepository()[0].executeJavaScript("window.find('#{query}', false, false, true)")

@@ -131,6 +131,23 @@ body {
   height: 100%;
 }
 
+#text-search-wrapper {
+  background-color: #e7e6e5;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 8px;
+  position: absolute;
+  right: 30px;
+  top: 0;
+}
+
+#text-search-input {
+  height: 25px;
+  padding: 3px;
+  font-size: 90%;
+  width: 200px;
+}
+
 #cheatsheet {
   border-radius: 5px;
   background-color: #222;
@@ -168,3 +185,5 @@ body {
   text-align: center;
   min-width: 19px;
 }
+
+

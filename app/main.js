@@ -78,6 +78,7 @@ var template = [
       { label: 'Reload App', accelerator: 'Shift+Cmd+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
       { label: 'Toggle DevTools', accelerator: 'Alt+Cmd+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
       { label: 'Toggle Sidebar', accelerator: 'CmdOrCtrl+S', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+s'); } },
+      { label: 'Search Text', accelerator: 'Shift+CmdOrCtrl+F', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+shift+f'); } },
       { type: 'separator' },
       { label: 'Previous Repository', accelerator: 'CmdOrCtrl+K', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+k'); } },
       { label: 'Next Repository', accelerator: 'CmdOrCtrl+J', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+j'); } },
