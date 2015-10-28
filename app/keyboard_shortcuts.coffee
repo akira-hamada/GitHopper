@@ -66,7 +66,11 @@ key 'return', (event, handler) ->
           $('.input-err-msg').removeClass('hide')
   else if _isShortcutOnId('text-search-input')
     unless _isEmptyInput()
-      searchText($(event.target).val())
+      searchText($(event.target).val(), false)
+
+key 'shift+return', (event, handler) ->
+  if _isShortcutOnId('text-search-input') && (not _isEmptyInput())
+    searchText($(event.target).val(), true)
 
 key 'esc', (event, handler) ->
   if _isShortcutOnId('pr-issue-search-box')

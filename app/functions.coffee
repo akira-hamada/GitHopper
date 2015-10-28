@@ -220,5 +220,5 @@ global.hideTextSearchBox = ->
   getCurrentRepository().focus()
 
 # ページ内検索を実行する
-global.searchText = (query) ->
-  getCurrentRepository()[0].executeJavaScript("window.find('#{query}', false, false, true)")
+global.searchText = (query, isBackward) ->
+  getCurrentRepository()[0].executeJavaScript("window.find('#{query}', false, #{isBackward}, true)")
