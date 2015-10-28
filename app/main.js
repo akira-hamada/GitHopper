@@ -58,6 +58,8 @@ var template = [
       { label: 'Copy', accelerator: 'Cmd+C', selector: 'copy:' },
       { label: 'Paste', accelerator: 'Cmd+V', selector: 'paste:' },
       { label: 'Select All', accelerator: 'Cmd+A', selector: 'selectAll:' },
+      { type: 'separator' },
+      { label: 'Find', accelerator: 'CmdOrCtrl+F', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+f'); } },
     ]
   },
   {
@@ -78,7 +80,6 @@ var template = [
       { label: 'Reload App', accelerator: 'Shift+Cmd+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
       { label: 'Toggle DevTools', accelerator: 'Alt+Cmd+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
       { label: 'Toggle Sidebar', accelerator: 'CmdOrCtrl+S', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+s'); } },
-      { label: 'Search Text', accelerator: 'CmdOrCtrl+F', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+f'); } },
       { type: 'separator' },
       { label: 'Previous Repository', accelerator: 'CmdOrCtrl+K', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+k'); } },
       { label: 'Next Repository', accelerator: 'CmdOrCtrl+J', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+j'); } },
