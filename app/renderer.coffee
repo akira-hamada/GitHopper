@@ -6,6 +6,8 @@ $('.js-open-in-chrome').on 'click', (e) =>
   e.preventDefault()
   require("shell").openExternal(e.target.href)
 
+$('#close-search-box').on 'click', hideTextSearchBox
+
 if localStorage.getItem('githubAccessToken')? && localStorage.getItem('githubAccessToken') != ''
   afterValidateToken localStorage.getItem('githubAccessToken'),
     =>

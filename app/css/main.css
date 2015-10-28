@@ -135,21 +135,42 @@ body {
   background-color: #e7e6e5;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
-  padding: 8px;
+  padding: 5px;
   position: absolute;
   right: 30px;
   top: -100px;
   transition: top 0.15s ease;
+  width: 235px;
 }
 
 #text-search-wrapper.displayed { top: 0; }
 
 #text-search-input {
+  display: inline-block;
   height: 25px;
   padding: 3px;
   font-size: 90%;
   width: 200px;
 }
+
+#close-search-box {
+  color: gray;
+  cursor: default;
+  display: inline-block;
+  height: 16px;
+  line-height: 15px;
+  margin-left: 3px;
+  text-align: center;
+  width: 16px;
+}
+
+#close-search-box:hover {
+  background-color: #e4adab;
+  border-radius: 12px;
+  color: white;
+}
+
+.octicon-x.search-close { font-size: 90%; }
 
 #cheatsheet {
   border-radius: 5px;

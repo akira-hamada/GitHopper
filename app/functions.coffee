@@ -214,6 +214,11 @@ global.displayTextSearchBox = ->
   $('#text-search-wrapper').addClass('displayed')
   $('#text-search-input').focus().select()
 
+# ページ内検索ボックスを隠す
+global.hideTextSearchBox = ->
+  $('#text-search-wrapper').removeClass('displayed')
+  getCurrentRepository().focus()
+
 # ページ内検索を実行する
 global.searchText = (query) ->
   getCurrentRepository()[0].executeJavaScript("window.find('#{query}', false, false, true)")
