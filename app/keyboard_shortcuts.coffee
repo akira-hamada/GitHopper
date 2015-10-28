@@ -7,8 +7,8 @@ key = require('keymaster')
 
 ipc.on 'onShortcutTriggered', (arg) ->
   switch arg
-    when 'Cmd+f' then displayPRIssueSearchBox()
-    when 'Cmd+shift+f' then displayTextSearchBox()
+    when 'Cmd+g' then displayPRIssueSearchBox()
+    when 'Cmd+f' then displayTextSearchBox()
     when 'Cmd+i' then displayIssues()
     when 'Cmd+shift+i' then displayClosedIssues()
     when 'Cmd+j' then nextRepo()

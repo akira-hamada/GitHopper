@@ -78,7 +78,7 @@ var template = [
       { label: 'Reload App', accelerator: 'Shift+Cmd+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
       { label: 'Toggle DevTools', accelerator: 'Alt+Cmd+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
       { label: 'Toggle Sidebar', accelerator: 'CmdOrCtrl+S', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+s'); } },
-      { label: 'Search Text', accelerator: 'Shift+CmdOrCtrl+F', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+shift+f'); } },
+      { label: 'Search Text', accelerator: 'CmdOrCtrl+F', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+f'); } },
       { type: 'separator' },
       { label: 'Previous Repository', accelerator: 'CmdOrCtrl+K', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+k'); } },
       { label: 'Next Repository', accelerator: 'CmdOrCtrl+J', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+j'); } },
@@ -91,7 +91,7 @@ var template = [
   {
     label: 'Repository',
     submenu: [
-      { label: 'PR/Issue Search', accelerator: 'CmdOrCtrl+F', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+f'); } },
+      { label: 'PR/Issue Search', accelerator: 'CmdOrCtrl+G', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+g'); } },
       { label: 'Repository Top',  accelerator: 'CmdOrCtrl+T', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+t'); } },
       { type: 'separator' },
       { label: 'Pull Requests',   accelerator: 'CmdOrCtrl+P', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+p'); } },
