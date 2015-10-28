@@ -44,7 +44,7 @@ global.initializeActiveRepository = ->
 
 # レポジトリ一覧を表示する
 global.renderReposList = ->
-  $('#webview-wrapper').append("<webview id='trending-repositories' class='repository-viewer invisible' src='https://github.com/trending' autosize='on'></webview>")
+  $('#webview-wrapper').append("<webview id='trending-repositories' class='repository-viewer invisible' src='#{afterLaunchUrl()}' autosize='on'></webview>")
 
   for repo in this.repos
     $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
@@ -222,3 +222,10 @@ global.hideTextSearchBox = ->
 # ページ内検索を実行する
 global.searchText = (query, isBackward) ->
   getCurrentRepository()[0].executeJavaScript("window.find('#{query}', false, #{isBackward}, true)")
+
+# 起動後に表示するページのURL
+global.afterLaunchUrl = ->
+  if localStorage.getItem('after-launch')? && localStorage.getItem('after-launch') != ''
+    localStorage.getItem('after-launch')
+  else
+    'https://github.com/trending'

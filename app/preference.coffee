@@ -21,3 +21,7 @@ $('#owner').on 'keyup', -> localStorage.setItem('owner', $(this).val())
 
 $('#github-access-token').val(localStorage.getItem('githubAccessToken')) if localStorage.getItem('githubAccessToken')?
 $('#github-access-token').on 'keyup', -> localStorage.setItem('githubAccessToken', $(this).val())
+
+$('#after-launch').val(localStorage.getItem('after-launch')) if localStorage.getItem('after-launch')?
+$('#after-launch').on 'keyup', -> localStorage.setItem('after-launch', $(this).val())
+
