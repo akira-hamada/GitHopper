@@ -44,7 +44,7 @@ global.initializeActiveRepository = ->
 
 # レポジトリ一覧を表示する
 global.renderReposList = ->
-  $('#webview-wrapper').append("<webview id='trending-repositories' class='repository-viewer invisible' src='#{afterLaunchUrl()}' autosize='on'></webview>")
+  $('#webview-wrapper').append("<webview id='after-launch-view' class='repository-viewer invisible' src='#{afterLaunchUrl()}' autosize='on'></webview>")
 
   for repo in this.repos
     $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
@@ -62,7 +62,7 @@ global.fadeOutLaunchLogo = ->
   $('#launch-logo').fadeOut 'normal', ->
     $(this).remove()
     $('#sidebar').removeClass('hide')
-    $('#trending-repositories').removeClass('invisible').focus().addClass('active')
+    $('#after-launch-view').removeClass('invisible').focus().addClass('active')
     $('body').css('background-color', 'white')
 
 # 選択されたレポジトリを表示する
@@ -101,7 +101,7 @@ global.prevRepo = ->
 
 # プルリクエスト一覧を表示する
 global.displayPR = ->
-  if getCurrentRepository()[0].id == 'trending-repositories'
+  if getCurrentRepository()[0].id == 'after-launch-view'
     return
 
   url = new URL(getCurrentRepository()[0].getUrl())
@@ -113,7 +113,7 @@ global.displayPR = ->
 
 # closed プルリクエスト一覧を表示する
 global.displayClosedPR = ->
-  if getCurrentRepository()[0].id == 'trending-repositories'
+  if getCurrentRepository()[0].id == 'after-launch-view'
     return
 
   url = new URL(getCurrentRepository()[0].getUrl())
@@ -125,7 +125,7 @@ global.displayClosedPR = ->
 
 # issues一覧を表示する
 global.displayIssues = ->
-  if getCurrentRepository()[0].id == 'trending-repositories'
+  if getCurrentRepository()[0].id == 'after-launch-view'
     return
 
   url = new URL(getCurrentRepository()[0].getUrl())
@@ -137,7 +137,7 @@ global.displayIssues = ->
 
 # closed issues一覧を表示する
 global.displayClosedIssues = ->
-  if getCurrentRepository()[0].id == 'trending-repositories'
+  if getCurrentRepository()[0].id == 'after-launch-view'
     return
 
   url = new URL(getCurrentRepository()[0].getUrl())
@@ -149,7 +149,7 @@ global.displayClosedIssues = ->
 
 # RP/検索ボックスを表示
 global.displayPRIssueSearchBox = ->
-  if getCurrentRepository()[0] == undefined || getCurrentRepository()[0].id == 'trending-repositories'
+  if getCurrentRepository()[0] == undefined || getCurrentRepository()[0].id == 'after-launch-view'
     return
 
   $('#pr-issue-search-box').removeClass('hide').focus()
@@ -183,7 +183,7 @@ global.renderApplication = ->
     fadeOutLaunchLogo()
 
     $('.list-item').on 'click', ->
-      $('#trending-repositories').remove()
+      $('#after-launch-view').remove()
       activateSelectedRepo(this)
 
 # 今開いているレポジトリのjQueryオブジェクトを返す
