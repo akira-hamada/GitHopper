@@ -1,3 +1,5 @@
+remote = require('remote')
+
 # トークン認証後の処理
 global.afterValidateToken = (token, successCallback, failureCallback) ->
   user = githubAuth(token)
@@ -75,7 +77,12 @@ global.activateSelectedRepo = (selectedRepo) ->
   $('.repository-viewer').addClass('hide').removeClass('active')
   $("##{repoId}").removeClass('hide').focus().addClass('active')
   $('title').text($("##{repoId}")[0].getTitle())
+
   this.activeRepo = repoId
+  height = remote.getCurrentWindow().getSize()[1]
+  width = $(window).width()
+  window.resizeTo(width + 1, height)
+  window.resizeTo(width, height)
 
 # サイドバーを開閉する
 global.toggleSidebar = ->
