@@ -79,6 +79,12 @@ var template = [
   {
     label: 'View',
     submenu: [
+      { label: 'New Window', accelerator: 'CmdOrCtrl+N', click: function() {
+        if(mainWindow == null) {
+          mainWindow = new BrowserWindow({width: 1200, height: 700});
+          mainWindow.loadUrl('file://' + __dirname + '/index.html');
+        }
+      } },
       { label: 'Close', accelerator: 'CmdOrCtrl+W', click: function() { BrowserWindow.getFocusedWindow().close(); } },
       { label: 'Reload App', accelerator: 'Shift+CmdOrCtrl+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
       { label: 'Toggle DevTools', accelerator: 'Alt+CmdOrCtrl+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
