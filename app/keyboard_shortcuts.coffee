@@ -36,13 +36,18 @@ key.filter = (event) ->
 
   return true
 
-key '⌘+b', searchText
-key '⌘+[, ctrl+[, ⌘+h, ctrl+h', browserBack
-key '⌘+], ctrl+], ⌘+l, ctrl+l', browserForward
+if process.platform == 'darwin'
+  mdfKey = '⌘'
+else
+  mdfKey = 'ctrl'
+
+key "#{mdfKey}+b", searchText
+key "#{mdfKey}+[, #{mdfKey}+h", browserBack
+key "#{mdfKey}+], #{mdfKey}+l", browserForward
 key 'tab', nextRepo
 key 'shift+tab', prevRepo
 for n in [2..8]
-  key "⌘+#{n}, ctrl+#{n}", (event, handler) -> $(".repo:nth-child(#{handler.shortcut.split('+')[1]})").click()
+  key "#{mdfKey}+#{n}", (event, handler) -> $(".repo:nth-child(#{handler.shortcut.split('+')[1]})").click()
 
 key 'return', (event, handler) ->
   if _isShortcutOnId('pr-issue-search-box')
