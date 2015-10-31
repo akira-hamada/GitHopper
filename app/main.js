@@ -38,7 +38,7 @@ var template = [
   {
     label: 'GitHub Viewer',
     submenu: [
-      { label: 'Preferences', accelerator: 'Cmd+,', click: function () {
+      { label: 'Preferences', accelerator: 'CmdOrCtrl+,', click: function () {
           // ブラウザ(Chromium)の起動, 初期画面のロード
           if(prefWindow == null) {
             prefWindow = new BrowserWindow({width: 500, height: 400, resizable: false});
@@ -48,7 +48,7 @@ var template = [
         }
       },
       { type: 'separator' },
-      { label: 'Quit GitHub Viewer', accelerator: 'Cmd+Q', click: function () { app.quit(); } },
+      { label: 'Quit GitHub Viewer', accelerator: 'CmdOrCtrl+Q', click: function () { app.quit(); } },
     ]
   },
   {
@@ -57,10 +57,10 @@ var template = [
       { label: 'Undo', accelerator: 'CmdOrCtrl+Z', role: 'undo' },
       { label: 'Redo', accelerator: 'Shift+CmdOrCtrl+Z', role: 'redo' },
       { type: 'separator' },
-      { label: 'Cut', accelerator: 'Cmd+X', selector: 'cut:' },
-      { label: 'Copy', accelerator: 'Cmd+C', selector: 'copy:' },
-      { label: 'Paste', accelerator: 'Cmd+V', selector: 'paste:' },
-      { label: 'Select All', accelerator: 'Cmd+A', selector: 'selectAll:' },
+      { label: 'Cut', accelerator: 'CmdOrCtrl+X', selector: 'cut:' },
+      { label: 'Copy', accelerator: 'CmdOrCtrl+C', selector: 'copy:' },
+      { label: 'Paste', accelerator: 'CmdOrCtrl+V', selector: 'paste:' },
+      { label: 'Select All', accelerator: 'CmdOrCtrl+A', selector: 'selectAll:' },
       { type: 'separator' },
       { label: 'Find', accelerator: 'CmdOrCtrl+F', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+f'); } },
     ]
@@ -79,9 +79,9 @@ var template = [
   {
     label: 'View',
     submenu: [
-      { label: 'Close', accelerator: 'Cmd+W', click: function() { BrowserWindow.getFocusedWindow().close(); } },
-      { label: 'Reload App', accelerator: 'Shift+Cmd+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
-      { label: 'Toggle DevTools', accelerator: 'Alt+Cmd+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
+      { label: 'Close', accelerator: 'CmdOrCtrl+W', click: function() { BrowserWindow.getFocusedWindow().close(); } },
+      { label: 'Reload App', accelerator: 'Shift+CmdOrCtrl+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
+      { label: 'Toggle DevTools', accelerator: 'Alt+CmdOrCtrl+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
       { label: 'Toggle Sidebar', accelerator: 'CmdOrCtrl+S', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+s'); } },
       { type: 'separator' },
       { label: 'Previous Repository', accelerator: 'CmdOrCtrl+K', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'Cmd+k'); } },
