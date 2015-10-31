@@ -58,6 +58,7 @@ global.renderReposList = ->
 
   $('webview').on 'did-start-loading', -> $('title').text('Loading...')
   $('webview').on 'did-stop-loading', -> $('title').text($(this)[0].getTitle())
+  $('webview').on 'new-window', -> require('shell').openExternal(event.url)
 
 # スプラッシュロゴを非表示にする
 global.fadeOutLaunchLogo = ->
