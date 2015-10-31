@@ -54,6 +54,9 @@ var template = [
   {
     label: 'Edit',
     submenu: [
+      { label: 'Undo', accelerator: 'CmdOrCtrl+Z', role: 'undo' },
+      { label: 'Redo', accelerator: 'Shift+CmdOrCtrl+Z', role: 'redo' },
+      { type: 'separator' },
       { label: 'Cut', accelerator: 'Cmd+X', selector: 'cut:' },
       { label: 'Copy', accelerator: 'Cmd+C', selector: 'copy:' },
       { label: 'Paste', accelerator: 'Cmd+V', selector: 'paste:' },
