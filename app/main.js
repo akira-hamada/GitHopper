@@ -10,6 +10,7 @@ var Menu = require('menu');
 
 require('crash-reporter').start();
 
+// https://github.com/atom/electron/blob/master/docs/api/web-view-tag.md#event-new-window
 var mainWindow = null;
 var prefWindow = null;
 

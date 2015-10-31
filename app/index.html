@@ -81,6 +81,21 @@
 <script>
   require('coffee-script/register');
   require('./renderer.coffee');
+
+  var remote = require('remote');
+  var Menu = remote.require('menu');
+
+  var contextMenuTemplate = [
+      { label: 'Copy', click: function() { getCurrentRepository()[0].copy(); } },
+      // { label: 'Copy Link URL', click: function() { getCurrentRepository()[0].executeJavaScript("alert(window.getSelection().anchorNode.parentNode)"); } },
+      // { label: 'Open Link In Browser', click: function() { console.log('item 3 clicked'); } },
+  ];
+  var ContextMenu = Menu.buildFromTemplate(contextMenuTemplate);
+
+  window.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    ContextMenu.popup(remote.getCurrentWindow());
+  }, false);
 </script>
 
 </body>
