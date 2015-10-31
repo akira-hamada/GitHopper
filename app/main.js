@@ -36,7 +36,7 @@ app.on('ready', function() {
 
 var template = [
   {
-    label: 'GitHub Viewer',
+    label: 'GitHopper',
     submenu: [
       { label: 'Preferences', accelerator: 'CmdOrCtrl+,', click: function () {
           // ブラウザ(Chromium)の起動, 初期画面のロード
@@ -48,7 +48,7 @@ var template = [
         }
       },
       { type: 'separator' },
-      { label: 'Quit GitHub Viewer', accelerator: 'CmdOrCtrl+Q', click: function () { app.quit(); } },
+      { label: 'Quit GitHopper', accelerator: 'CmdOrCtrl+Q', click: function () { app.quit(); } },
     ]
   },
   {
