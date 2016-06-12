@@ -34,6 +34,12 @@ app.on('ready', function() {
   });
 });
 
+if (process.platform == 'darwin') { // CmdOrCtrl+Z がパッケージしたMacで動作しないための分岐 (TODO linuxやwindowsでの動作確認)
+  var undoShortCut = 'Cmd+Z'
+} else {
+  var undoShortCut = 'Ctrl+Z'
+}
+
 var template = [
   {
     label: 'GitHopper',
@@ -54,8 +60,8 @@ var template = [
   {
     label: 'Edit',
     submenu: [
-      { label: 'Undo', accelerator: 'CmdOrCtrl+Z', role: 'undo' },
-      { label: 'Redo', accelerator: 'Shift+CmdOrCtrl+Z', role: 'redo' },
+      { label: 'Undo', accelerator: undoShortCut, click: function() { mainWindow.webContents.undo(); } }, // CmdOrCtrl+Z がパッケージしたMacで動作しないための分岐 (TODO linuxやwindowsでの動作確認)
+      { label: 'Undo', accelerator: 'Shift+'+undoShortCut, click: function() { mainWindow.webContents.redo(); } }, // CmdOrCtrl+Z がパッケージしたMacで動作しないための分岐 (TODO linuxやwindowsでの動作確認)
       { type: 'separator' },
       { label: 'Cut', accelerator: 'CmdOrCtrl+X', selector: 'cut:' },
       { label: 'Copy', accelerator: 'CmdOrCtrl+C', selector: 'copy:' },
