@@ -1,5 +1,8 @@
 //----------------------------------
 // electronアプリの初期化処理
+//
+// アプリのパッケージ方法
+// electron-packager ./github-viewer 'GitHopper' --platform=darwin,linux --arch=x64 --version=0.30.0 --icon=github-viewer/icons/githopper_icon_1.icns
 //----------------------------------
 
 'use strict';
