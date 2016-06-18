@@ -97,12 +97,18 @@ global.nextRepo = ->
 
   $next.click()
 
+  if $('.repo:not(.hide)').length > 0 && $next.hasClass('hide')
+    nextRepo()
+
 # 前のレポジトリを選択する
 global.prevRepo = ->
   $prev = $('.repo.active').prev()
   $prev = $('.repo:last-child') unless $prev.hasClass('repo')
 
   $prev.click()
+
+  if $('.repo:not(.hide)').length > 0 && $prev.hasClass('hide')
+    prevRepo()
 
 # プルリクエスト一覧を表示する
 global.displayPR = ->
