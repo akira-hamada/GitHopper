@@ -14,43 +14,71 @@ body {
   width: 100%;
 }
 
-.scroll-menu-wrapper {
+#sidebar {
+  background-color: #2e333b;
   width: 170px;
   transition: width 0.15s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.scroll-menu-wrapper.collapsed { width: 0; }
+#sidebar.collapsed { width: 0; }
 
-.scroll-menu-wrapper > .scroll-pane {
-  left: 160px;
-  z-index: 3;
+.repo-search-input-wrapper {
+  padding: 10px 10px;
+  top: 34px;
 }
 
-.scroll-menu-wrapper > .scroll-pane > .nano-slider { background: rgba(0, 0, 0, .8); }
+.repo-search-input {
+  border-radius: 4px;
+  height: 25px;
+  font-size: 13px;
+  padding: 5px;
+}
+
+.own-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.own-scrollbar::-webkit-scrollbar-button {
+  width: 8px;
+  height: 5px;
+}
+.own-scrollbar::-webkit-scrollbar-track {
+  background: #eee;
+  border: thin solid lightgray;
+  box-shadow: 0px 0px 3px #dfdfdf inset;
+  border-radius: 10px;
+}
+.own-scrollbar::-webkit-scrollbar-thumb {
+  background: #999;
+  border: thin solid gray;
+  border-radius: 10px;
+}
+.own-scrollbar::-webkit-scrollbar-thumb:hover {
+    background:#7d7d7d;
+}
 
 .repository-list {
-  background-color: #2e333b;
   color: #b3b9bf;
-  height: 100%;
-  left: 0;
   list-style: none;
   margin: 0;
   outline: 0!important;
-  overflow-y: scroll;
   padding-left: 0;
-  position: absolute;
   -webkit-user-select: none;
   vertical-align: top;
-  z-index: 3;
+  width: 170px;
+  flex: 1;
+  overflow-x: hidden;
 }
 
 .list-item {
-  margin-right: 10px;
   font-size: 95%;
-  padding: 5px 10px;
+  padding: 5px 0 5px 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  width: 160px;
 }
 
 .list-item:hover { cursor: default; }

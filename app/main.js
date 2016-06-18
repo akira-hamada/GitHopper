@@ -107,6 +107,7 @@ function loadAppMenu() {
         { label: 'Next Repository', accelerator: 'CmdOrCtrl+J', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'j'); } },
         { label: 'First Repository', accelerator: 'CmdOrCtrl+1', click: function() { mainWindow.webContents.send('onShortcutTriggered', '1'); } },
         { label: 'Last Repository', accelerator: 'CmdOrCtrl+9', click: function() { mainWindow.webContents.send('onShortcutTriggered', '9'); } },
+        { label: 'Toggle Sidebar', accelerator: 'Shift+CmdOrCtrl+F', click: function() { mainWindow.webContents.send('onShortcutTriggered', 'shift+f'); } },
         { type: 'separator' },
         { label: 'Keyboard Shortcuts', accelerator: 'CmdOrCtrl+/', click: function() { mainWindow.webContents.send('onShortcutTriggered', '/'); } },
       ]

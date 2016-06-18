@@ -52,13 +52,10 @@ global.renderReposList = ->
     $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
     $('#webview-wrapper').append("<webview id='#{repo.id}' class='repository-viewer hide' src='#{repo.html_url}' autosize='on'></webview>")
 
-  $('#sidebar').nanoScroller
-    contentClass: 'scroll-content'
-    paneClass: 'scroll-pane'
-
   $('webview').on 'did-start-loading', -> $('title').text('Loading...')
   $('webview').on 'did-stop-loading', -> $('title').text($(this)[0].getTitle())
   $('webview').on 'new-window', -> require('electron').shell.openExternal(event.url)
+  $('#repo-search-input').on 'keyup', searchRepositories
 
 # スプラッシュロゴを非表示にする
 global.fadeOutLaunchLogo = ->
@@ -230,6 +227,26 @@ global.hideTextSearchBox = ->
 # ページ内検索を実行する
 global.searchText = (query, isBackward) ->
   getCurrentRepository()[0].executeJavaScript("window.find('#{query}', false, #{isBackward}, true)")
+
+# レポジトリ検索を実行する
+global.searchRepositories = (event) ->
+  query = $(this).val()
+  $("#repositories .repo").removeClass('hide')
+  unless query == ''
+    $("#repositories .repo:not([data-repo*='#{query}'])").addClass('hide')
+
+  if event.keyCode == 13 # enter key押下時
+    activateSelectedRepo("#repositories .repo:not(.hide):first") # // 表示されている一番植のレポジトリ
+    $('#repositories .repo').removeClass('hide')
+    $('#repo-search-input').val('')
+
+  if event.keyCode == 27 # esc key押下時
+    $('#repositories .repo').removeClass('hide')
+    $('#repo-search-input').val('')
+
+# レポジトリ検索ボックスにフォーカスする
+global.focusToRepoSearch = ->
+  $('#repo-search-input').focus()
 
 # 起動後に表示するページのURL
 global.afterLaunchUrl = ->
