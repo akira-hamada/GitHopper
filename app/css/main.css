@@ -70,6 +70,8 @@ body {
   height: 100%;
 }
 
+webview { height: 100%; }
+
 #launch-logo {
   left: 0;
   margin: auto;

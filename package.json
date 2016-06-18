@@ -12,5 +12,17 @@
     "coffee-script": "^1.10.0",
     "github-api": "^0.10.6",
     "keymaster": "^1.6.2"
-  }
+  },
+  "devDependencies": {
+    "coffee-script": "^1.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akira-hamada/GitHub-Repo-Viewer.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/akira-hamada/GitHub-Repo-Viewer/issues"
+  },
+  "homepage": "https://github.com/akira-hamada/GitHub-Repo-Viewer#readme"
 }

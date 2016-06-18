@@ -1,4 +1,4 @@
-remote = require('remote')
+remote = require('electron').remote
 
 # トークン認証後の処理
 global.afterValidateToken = (token, successCallback, failureCallback) ->
@@ -58,7 +58,7 @@ global.renderReposList = ->
 
   $('webview').on 'did-start-loading', -> $('title').text('Loading...')
   $('webview').on 'did-stop-loading', -> $('title').text($(this)[0].getTitle())
-  $('webview').on 'new-window', -> require('shell').openExternal(event.url)
+  $('webview').on 'new-window', -> require('electron').shell.openExternal(event.url)
 
 # スプラッシュロゴを非表示にする
 global.fadeOutLaunchLogo = ->
@@ -112,7 +112,7 @@ global.displayPR = ->
   if getCurrentRepository()[0].id == 'after-launch-view'
     return
 
-  url = new URL(getCurrentRepository()[0].getUrl())
+  url = new URL(getCurrentRepository()[0].getURL())
   path = url.pathname.split('/')
   account = path[1]
   repoName = path[2]
@@ -124,7 +124,7 @@ global.displayClosedPR = ->
   if getCurrentRepository()[0].id == 'after-launch-view'
     return
 
-  url = new URL(getCurrentRepository()[0].getUrl())
+  url = new URL(getCurrentRepository()[0].getURL())
   path = url.pathname.split('/')
   account = path[1]
   repoName = path[2]
@@ -136,7 +136,7 @@ global.displayIssues = ->
   if getCurrentRepository()[0].id == 'after-launch-view'
     return
 
-  url = new URL(getCurrentRepository()[0].getUrl())
+  url = new URL(getCurrentRepository()[0].getURL())
   path = url.pathname.split('/')
   account = path[1]
   repoName = path[2]
@@ -148,7 +148,7 @@ global.displayClosedIssues = ->
   if getCurrentRepository()[0].id == 'after-launch-view'
     return
 
-  url = new URL(getCurrentRepository()[0].getUrl())
+  url = new URL(getCurrentRepository()[0].getURL())
   path = url.pathname.split('/')
   account = path[1]
   repoName = path[2]
@@ -176,8 +176,8 @@ global.displayRepositoryTopPage = -> getCurrentRepository().attr('src', getCurre
 
 # 現在表示中のページURLをコピー
 global.copycurrentUrl = ->
-  require('clipboard').writeText(getCurrentRepository()[0].getUrl())
-  console.log getCurrentRepository()[0].getUrl()
+  require('electron').clipboard.writeText(getCurrentRepository()[0].getURL())
+  console.log getCurrentRepository()[0].getURL()
 
 global.renderApplication = ->
   loginUser = githubAuth(localStorage.getItem('githubAccessToken'))
@@ -200,7 +200,7 @@ global.getCurrentRepository = ->
 
 # 今開いているレポジトリのURLを取得する
 global.getCurrentRepositoryUrl = ->
-  url = new URL(getCurrentRepository()[0].getUrl())
+  url = new URL(getCurrentRepository()[0].getURL())
   path = url.pathname.split('/')
   account = path[1]
   repoName = path[2]
@@ -215,7 +215,7 @@ global.displayTokenInput = ->
 
 # 現在見ているページをブラウザで開く
 global.openInBrowser = ->
-  require("shell").openExternal(getCurrentRepository()[0].getUrl())
+  require('electron').shell.openExternal(getCurrentRepository()[0].getURL())
 
 # ページ内検索ボックスを表示
 global.displayTextSearchBox = ->
