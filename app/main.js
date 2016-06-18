@@ -2,7 +2,8 @@
 // electronアプリの初期化処理
 //
 // アプリのパッケージ方法
-// electron-packager ./github-viewer 'GitHopper' --platform=darwin,linux --arch=x64 --version=1.2.3 --icon=github-viewer/icons/githopper_icon_1.icns
+// cd $HOME/code
+// electron-packager --overwrite electron/github-viewer 'GitHopper' --platform=darwin --arch=x64 --version=1.2.3 --icon=electron/github-viewer/icons/githopper_icon_1.icns
 //----------------------------------
 
 const {app, BrowserWindow, Menu} = require('electron');
@@ -99,7 +100,7 @@ function loadAppMenu() {
       submenu: [
         { label: 'New Window', accelerator: 'CmdOrCtrl+N', click: loadMainWindow },
         { label: 'Close', accelerator: 'CmdOrCtrl+W', click: function() { BrowserWindow.getFocusedWindow().close(); } },
-        { label: 'Reload App', accelerator: 'Shift+CmdOrCtrl+R', click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); } },
+        { label: 'Reload App', accelerator: 'Shift+CmdOrCtrl+R', click: function() { BrowserWindow.getFocusedWindow().reload(); } },
         { label: 'Toggle DevTools', accelerator: 'Alt+CmdOrCtrl+I', click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); } },
         { label: 'Toggle Sidebar', accelerator: 'CmdOrCtrl+S', click: function() { mainWindow.webContents.send('onShortcutTriggered', 's'); } },
         { type: 'separator' },
