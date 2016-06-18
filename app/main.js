@@ -40,7 +40,7 @@ function loadMainWindow() {
 function loadPrefWindow() {
   if(preference != null) { return; }
 
-  preference = new BrowserWindow({width: 500, height: 400, resizable: false})
+  preference = new BrowserWindow({width: 600, height: 510, resizable: false})
   preference.loadURL(`file://${__dirname}/preference.html`)
 
   //preference.webContents.openDevTools()

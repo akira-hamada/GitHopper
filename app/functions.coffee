@@ -40,6 +40,31 @@ global.filterRepositoryByPreference = (repositories) ->
 
     isMatchedRepo
 
+  appendRepositories()
+  removeRepositories()
+
+# レポジトリを追加する
+global.appendRepositories = ->
+  return unless localStorage.getItem('append-repos')? && localStorage.getItem('append-repos') != ''
+
+  repos = localStorage.getItem('append-repos').split(/\s*?,\s*/)
+
+  for repo in repos
+    this.repos.push {
+      html_url: "https://github.com/#{repo}",
+      name: repo.split('/')[1],
+      id: repo.replace('/', '-')
+    }
+
+# レポジトリを削除する
+global.removeRepositories = ->
+  return unless localStorage.getItem('remove-repos')? && localStorage.getItem('remove-repos') != ''
+
+  reposToRemove = localStorage.getItem('remove-repos').split(/\s*?,\s*/)
+  this.repos = this.repos.filter (repo) ->
+    # リストから削除したいレポジトリ名の配列にrepo.nameが含まれていればtrue
+    reposToRemove.indexOf(repo.name) == -1
+
 # アクティブなレポジトリを初期化する
 global.initializeActiveRepository = ->
   this.activeRepo = null
@@ -49,7 +74,7 @@ global.renderReposList = ->
   $('#webview-wrapper').append("<webview id='after-launch-view' class='repository-viewer invisible' src='#{afterLaunchUrl()}' autosize='on'></webview>")
 
   for repo in this.repos
-    $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
+    $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name.toLowerCase()}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
     $('#webview-wrapper').append("<webview id='#{repo.id}' class='repository-viewer hide' src='#{repo.html_url}' autosize='on'></webview>")
 
   $('webview').on 'did-start-loading', -> $('title').text('Loading...')
@@ -239,7 +264,7 @@ global.searchRepositories = (event) ->
   query = $(this).val()
   $("#repositories .repo").removeClass('hide')
   unless query == ''
-    $("#repositories .repo:not([data-repo*='#{query}'])").addClass('hide')
+    $("#repositories .repo:not([data-repo*='#{query}'])").addClass('hide') # FIXME: data-repoの値をlowercaseにしてるので小文字でしかマッチしない(case insensitiveにしたい)
 
   if event.keyCode == 13 # enter key押下時
     activateSelectedRepo("#repositories .repo:not(.hide):first") # // 表示されている一番植のレポジトリ
