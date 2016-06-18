@@ -52,10 +52,6 @@ global.renderReposList = ->
     $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
     $('#webview-wrapper').append("<webview id='#{repo.id}' class='repository-viewer hide' src='#{repo.html_url}' autosize='on'></webview>")
 
-  $('.scrollable').nanoScroller
-    contentClass: 'scroll-content'
-    paneClass: 'scroll-pane'
-
   $('webview').on 'did-start-loading', -> $('title').text('Loading...')
   $('webview').on 'did-stop-loading', -> $('title').text($(this)[0].getTitle())
   $('webview').on 'new-window', -> require('electron').shell.openExternal(event.url)

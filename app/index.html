@@ -6,12 +6,10 @@
 
 <link rel="stylesheet" href="css/bootstrap_3.3.5.min.css">
 <link rel="stylesheet" href="css/octicons.css" >
-<link rel="stylesheet" href="css/nanoscroller.css">
 <link rel="stylesheet" href="css/main.css">
 
 <script src="../lib/jquery-2.1.4.min.js"></script>
 <script src="../lib/jquery_after.js"></script>
-<script src="../lib/jquery.nanoscroller.min.js"></script>
 </head>
 
 <body>
@@ -20,9 +18,7 @@
     <div id=repo-search-input-wrapper class='repo-search-input-wrapper'>
       <input type=text id='repo-search-input' class='repo-search-input form-control' placeholder='Search Repository'>
     </div>
-    <div class='repositories-wrapper scrollable'>
-      <ul id='repositories' class='repository-list scroll-content'></ul>
-    </div>
+    <ul id='repositories' class='repository-list own-scrollbar'></ul>
   </div>
 
   <div id='webview-wrapper'></div>
