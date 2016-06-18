@@ -2,10 +2,10 @@
 # キーボードショートカット定義ファイル
 # 主にkeymaster.js を使用 (https://github.com/madrobby/keymaster)
 # --------------------------------------
-ipc = require('ipc')
+ipc = require('electron').ipcRenderer
 key = require('keymaster')
 
-ipc.on 'onShortcutTriggered', (arg) ->
+ipc.on 'onShortcutTriggered', (event, arg) ->
   switch arg
     when 'g' then displayPRIssueSearchBox()
     when 'f' then displayTextSearchBox()
