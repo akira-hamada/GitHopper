@@ -252,7 +252,7 @@ global.searchRepositories = (event) ->
 
 # レポジトリ検索ボックスにフォーカスする
 global.focusToRepoSearch = ->
-  $('#repo-search-input').focus()
+  $('#repo-search-input').focus().select()
 
 # 起動後に表示するページのURL
 global.afterLaunchUrl = ->
