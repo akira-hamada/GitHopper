@@ -24,7 +24,7 @@ app.on('window-all-closed', function() {
 function loadMainWindow() {
   if(mainWindow != null) { return; }
 
-  mainWindow = new BrowserWindow({width: 1200, height: 700})
+  mainWindow = new BrowserWindow({width: 1200, height: 700, minWidth: 720, minHeight: 420})
   mainWindow.loadURL(`file://${__dirname}/index.html`)
 
   //mainWindow.webContents.openDevTools()
