@@ -35,6 +35,16 @@
   <input type=text id='after-launch' class='form-control' placeholder='https://github.com/trending'>
 </div>
 
+<div class='pref-item'>
+  <label for='append-repos' class='pref-label'>Repositories You Want Append To List (comma separated)</label>
+  <input type=text id='append-repos' class='form-control' placeholder='owner/repo1, owner2/repo, owner2/other-repo'>
+</div>
+
+<div class='pref-item'>
+  <label for='remove-repos' class='pref-label'>Repositories You Want Remove From List (comma separated)</label>
+  <input type=text id='remove-repos' class='form-control' placeholder='repo1, repo2'>
+</div>
+
 <script>
   require('coffee-script/register');
   require('./preference.coffee');

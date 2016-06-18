@@ -25,3 +25,8 @@ $('#github-access-token').on 'keyup', -> localStorage.setItem('githubAccessToken
 $('#after-launch').val(localStorage.getItem('after-launch')) if localStorage.getItem('after-launch')?
 $('#after-launch').on 'keyup', -> localStorage.setItem('after-launch', $(this).val())
 
+$('#append-repos').val(localStorage.getItem('append-repos')) if localStorage.getItem('append-repos')?
+$('#append-repos').on 'keyup', -> localStorage.setItem('append-repos', $(this).val())
+
+$('#remove-repos').val(localStorage.getItem('remove-repos')) if localStorage.getItem('remove-repos')?
+$('#remove-repos').on 'keyup', -> localStorage.setItem('remove-repos', $(this).val())

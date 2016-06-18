@@ -40,6 +40,31 @@ global.filterRepositoryByPreference = (repositories) ->
 
     isMatchedRepo
 
+  appendRepositories()
+  removeRepositories()
+
+# レポジトリを追加する
+global.appendRepositories = ->
+  return unless localStorage.getItem('append-repos')? && localStorage.getItem('append-repos') != ''
+
+  repos = localStorage.getItem('append-repos').split(/\s*?,\s*/)
+
+  for repo in repos
+    this.repos.push {
+      html_url: "https://github.com/#{repo}",
+      name: repo.split('/')[1],
+      id: repo.replace('/', '-')
+    }
+
+# レポジトリを削除する
+global.removeRepositories = ->
+  return unless localStorage.getItem('remove-repos')? && localStorage.getItem('remove-repos') != ''
+
+  reposToRemove = localStorage.getItem('remove-repos').split(/\s*?,\s*/)
+  this.repos = this.repos.filter (repo) ->
+    # リストから削除したいレポジトリ名の配列にrepo.nameが含まれていればtrue
+    reposToRemove.indexOf(repo.name) == -1
+
 # アクティブなレポジトリを初期化する
 global.initializeActiveRepository = ->
   this.activeRepo = null
