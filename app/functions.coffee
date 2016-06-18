@@ -52,7 +52,7 @@ global.renderReposList = ->
     $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
     $('#webview-wrapper').append("<webview id='#{repo.id}' class='repository-viewer hide' src='#{repo.html_url}' autosize='on'></webview>")
 
-  $('#sidebar').nanoScroller
+  $('.scrollable').nanoScroller
     contentClass: 'scroll-content'
     paneClass: 'scroll-pane'
 
@@ -241,26 +241,16 @@ global.searchRepositories = (event) ->
 
   if event.keyCode == 13 # enter key押下時
     activateSelectedRepo("#repositories .repo:not(.hide):first") # // 表示されている一番植のレポジトリ
-    $('#repo-search-input-wrapper').addClass('hide')
-    showAllRepositories()
+    $('#repositories .repo').removeClass('hide')
+    $('#repo-search-input').val('')
 
   if event.keyCode == 27 # esc key押下時
-    $('#repo-search-input-wrapper').addClass('hide')
-    showAllRepositories()
+    $('#repositories .repo').removeClass('hide')
+    $('#repo-search-input').val('')
 
-# レポジトリ検索ボックスを出し入れする
-global.toggleRepoSearchInput = ->
-  $inputWrapper = $('#repo-search-input-wrapper')
-  if $inputWrapper.hasClass('hide')
-    $inputWrapper.removeClass('hide')
-    $inputWrapper.find('#repo-search-input').focus()
-  else
-    $inputWrapper.addClass('hide')
-    showAllRepositories()
-
-global.showAllRepositories = ->
-  $('#repositories .repo').removeClass('hide')
-  $('#repo-search-input').val('')
+# レポジトリ検索ボックスにフォーカスする
+global.focusToRepoSearch = ->
+  $('#repo-search-input').focus()
 
 # 起動後に表示するページのURL
 global.afterLaunchUrl = ->
