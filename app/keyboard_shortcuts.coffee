@@ -9,6 +9,7 @@ ipc.on 'onShortcutTriggered', (event, arg) ->
   switch arg
     when 'g' then displayPRIssueSearchBox()
     when 'f' then displayTextSearchBox()
+    when 'shift+f' then toggleRepoSearchInput()
     when 'i' then displayIssues()
     when 'shift+i' then displayClosedIssues()
     when 'j' then nextRepo()

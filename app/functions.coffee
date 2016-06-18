@@ -59,6 +59,7 @@ global.renderReposList = ->
   $('webview').on 'did-start-loading', -> $('title').text('Loading...')
   $('webview').on 'did-stop-loading', -> $('title').text($(this)[0].getTitle())
   $('webview').on 'new-window', -> require('electron').shell.openExternal(event.url)
+  $('#repo-search-input').on 'keyup', searchRepositories
 
 # スプラッシュロゴを非表示にする
 global.fadeOutLaunchLogo = ->
@@ -230,6 +231,36 @@ global.hideTextSearchBox = ->
 # ページ内検索を実行する
 global.searchText = (query, isBackward) ->
   getCurrentRepository()[0].executeJavaScript("window.find('#{query}', false, #{isBackward}, true)")
+
+# レポジトリ検索を実行する
+global.searchRepositories = (event) ->
+  query = $(this).val()
+  $("#repositories .repo").removeClass('hide')
+  unless query == ''
+    $("#repositories .repo:not([data-repo*='#{query}'])").addClass('hide')
+
+  if event.keyCode == 13 # enter key押下時
+    activateSelectedRepo("#repositories .repo:not(.hide):first") # // 表示されている一番植のレポジトリ
+    $('#repo-search-input-wrapper').addClass('hide')
+    showAllRepositories()
+
+  if event.keyCode == 27 # esc key押下時
+    $('#repo-search-input-wrapper').addClass('hide')
+    showAllRepositories()
+
+# レポジトリ検索ボックスを出し入れする
+global.toggleRepoSearchInput = ->
+  $inputWrapper = $('#repo-search-input-wrapper')
+  if $inputWrapper.hasClass('hide')
+    $inputWrapper.removeClass('hide')
+    $inputWrapper.find('#repo-search-input').focus()
+  else
+    $inputWrapper.addClass('hide')
+    showAllRepositories()
+
+global.showAllRepositories = ->
+  $('#repositories .repo').removeClass('hide')
+  $('#repo-search-input').val('')
 
 # 起動後に表示するページのURL
 global.afterLaunchUrl = ->

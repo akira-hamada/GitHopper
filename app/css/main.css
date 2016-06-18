@@ -65,6 +65,14 @@ body {
   margin-right: 5px;
 }
 
+.repo-search-input-wrapper {
+  bottom: 0;
+  position: absolute;
+  z-index: 3;
+}
+
+.repo-search-input { border-radius: 0 }
+
 #webview-wrapper {
   flex: 1;
   height: 100%;
