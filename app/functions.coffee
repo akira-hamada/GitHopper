@@ -74,7 +74,7 @@ global.renderReposList = ->
   $('#webview-wrapper').append("<webview id='after-launch-view' class='repository-viewer invisible' src='#{afterLaunchUrl()}' autosize='on'></webview>")
 
   for repo in this.repos
-    $('#repositories').append("<li class='list-item repo displayed' data-url='#{repo.html_url}' data-repo='#{repo.name.toLowerCase()}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
+    $('#repositories').append("<li class='list-item repo displayed' data-url='#{repo.html_url}' data-repo='#{repo.name}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
     $('#webview-wrapper').append("<webview id='#{repo.id}' class='repository-viewer hide' src='#{repo.html_url}' autosize='on'></webview>")
 
   $('webview').on 'did-start-loading', -> $('title').text('Loading...')
@@ -257,10 +257,13 @@ global.searchText = (query, isBackward) ->
 
 # レポジトリ検索を実行する
 global.searchRepositories = (event) ->
-  query = $(this).val()
+  query = $(this).val().toLowerCase()
   $("#repositories .repo").addClass('displayed')
   unless query == ''
-    $("#repositories .repo:not([data-repo*='#{query}'])").removeClass('displayed') # FIXME: data-repoの値をlowercaseにしてるので小文字でしかマッチしない(case insensitiveにしたい)
+    $unMatchedRepos = $('#repositories .repo').filter ->
+      $(this).attr('data-repo').toLowerCase().indexOf(query) < 0
+
+    $unMatchedRepos.removeClass('displayed')
 
   if event.keyCode == 13 # enter key押下時
     activateSelectedRepo("#repositories .repo.displayed:first") # // 表示されている一番植のレポジトリ
