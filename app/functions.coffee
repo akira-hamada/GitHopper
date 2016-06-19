@@ -74,7 +74,7 @@ global.renderReposList = ->
   $('#webview-wrapper').append("<webview id='after-launch-view' class='repository-viewer invisible' src='#{afterLaunchUrl()}' autosize='on'></webview>")
 
   for repo in this.repos
-    $('#repositories').append("<li class='list-item repo' data-url='#{repo.html_url}' data-repo='#{repo.name.toLowerCase()}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
+    $('#repositories').append("<li class='list-item repo displayed' data-url='#{repo.html_url}' data-repo='#{repo.name.toLowerCase()}' data-id='#{repo.id}'><span class='octicon octicon-repo text-muted'></span>#{repo.name}</li>")
     $('#webview-wrapper').append("<webview id='#{repo.id}' class='repository-viewer hide' src='#{repo.html_url}' autosize='on'></webview>")
 
   $('webview').on 'did-start-loading', -> $('title').text('Loading...')
@@ -117,23 +117,19 @@ global.browserReload = -> getCurrentRepository()[0].reload()
 
 # 次のレポジトリを選択する
 global.nextRepo = ->
-  $next = $('.repo.active').next()
-  $next = $('.repo:first-child') unless $next.hasClass('repo')
+  $next = $('.repo.active').nextAll('.repo.displayed').first()
+  $next = $('.repo.displayed').first() if $next.length <= 0 # 既にリスト中で最後の表示されているレポジトリを選択中の場合
+  return if $next.length <= 0 # 表示中のレポジトリが一つもない場合
 
   $next.click()
 
-  if $('.repo:not(.hide)').length > 0 && $next.hasClass('hide')
-    nextRepo()
-
 # 前のレポジトリを選択する
 global.prevRepo = ->
-  $prev = $('.repo.active').prev()
-  $prev = $('.repo:last-child') unless $prev.hasClass('repo')
+  $prev = $('.repo.active').prevAll('.repo.displayed').first() # 最後のdisplayedが配列中の最初に入るためfirstを使用
+  $prev = $('.repo.displayed').last() if $prev.length <= 0 # 既にリストで最初の表示されているレポジトリを選択中の場合
+  return if $prev.length <= 0 # 表示中のレポジトリが一つもない場合
 
   $prev.click()
-
-  if $('.repo:not(.hide)').length > 0 && $prev.hasClass('hide')
-    prevRepo()
 
 # プルリクエスト一覧を表示する
 global.displayPR = ->
@@ -262,17 +258,17 @@ global.searchText = (query, isBackward) ->
 # レポジトリ検索を実行する
 global.searchRepositories = (event) ->
   query = $(this).val()
-  $("#repositories .repo").removeClass('hide')
+  $("#repositories .repo").addClass('displayed')
   unless query == ''
-    $("#repositories .repo:not([data-repo*='#{query}'])").addClass('hide') # FIXME: data-repoの値をlowercaseにしてるので小文字でしかマッチしない(case insensitiveにしたい)
+    $("#repositories .repo:not([data-repo*='#{query}'])").removeClass('displayed') # FIXME: data-repoの値をlowercaseにしてるので小文字でしかマッチしない(case insensitiveにしたい)
 
   if event.keyCode == 13 # enter key押下時
-    activateSelectedRepo("#repositories .repo:not(.hide):first") # // 表示されている一番植のレポジトリ
-    $('#repositories .repo').removeClass('hide')
+    activateSelectedRepo("#repositories .repo.displayed:first") # // 表示されている一番植のレポジトリ
+    $('#repositories .repo').addClass('displayed')
     $('#repo-search-input').val('')
 
   if event.keyCode == 27 # esc key押下時
-    $('#repositories .repo').removeClass('hide')
+    $('#repositories .repo').addClass('displayed')
     $('#repo-search-input').val('')
 
 # レポジトリ検索ボックスにフォーカスする

@@ -93,6 +93,9 @@ body {
   margin-right: 5px;
 }
 
+.repo { display: none; }
+.repo.displayed { display: block; }
+
 #webview-wrapper {
   flex: 1;
   height: 100%;
