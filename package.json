@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "coffee-script": "^1.10.0",
-    "github-api": "^0.10.6",
+    "github-api": "^2.3.0",
     "keymaster": "^1.6.2"
   },
   "devDependencies": {
