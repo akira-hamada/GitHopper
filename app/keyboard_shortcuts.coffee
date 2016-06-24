@@ -20,6 +20,7 @@ ipc.on 'onShortcutTriggered', (event, arg) ->
     when 'r' then browserReload()
     when 's' then toggleSidebar()
     when 't' then displayRepositoryTopPage()
+    when 'shift+t' then displayInitialView()
     when 'u' then copycurrentUrl()
     when '/' then displayKeyBoardShorCut()
     when 'left' then browserBack()

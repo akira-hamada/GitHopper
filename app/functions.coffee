@@ -215,7 +215,6 @@ global.renderApplication = ->
     fadeOutLaunchLogo()
 
     $('.list-item').on 'click', ->
-      $('#after-launch-view').remove()
       activateSelectedRepo(this)
 
 # 今開いているレポジトリのjQueryオブジェクトを返す
@@ -284,3 +283,14 @@ global.afterLaunchUrl = ->
     localStorage.getItem('after-launch')
   else
     'https://github.com/trending'
+
+# 初期画面をもう一度表示
+global.displayInitialView = ->
+  $('.repository-viewer').addClass('hide').removeClass('active')
+  $('#after-launch-view').removeClass('hide').focus().addClass('active')
+  $('title').text($('#after-launch-view')[0].getTitle())
+  $('.list-item').removeClass('active')
+  height = remote.getCurrentWindow().getSize()[1]
+  width = $(window).width()
+  window.resizeTo(width + 1, height)
+  window.resizeTo(width, height)
