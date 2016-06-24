@@ -4,7 +4,7 @@ remote = require('electron').remote
 global.afterValidateToken = (token, successCallback, failureCallback) ->
   user = githubAuth(token)
 
-  user.notifications (err) ->
+  user.listNotifications (err, notifcations) ->
     if err == null
       console.log 'GitHub Valid Token!! :)'
       successCallback()
@@ -206,7 +206,7 @@ global.copycurrentUrl = ->
 global.renderApplication = ->
   loginUser = githubAuth(localStorage.getItem('githubAccessToken'))
 
-  loginUser.repos (err, repos) ->
+  loginUser.listRepos (err, repos) ->
     filterRepositoryByPreference(repos)
 
     initializeActiveRepository()
