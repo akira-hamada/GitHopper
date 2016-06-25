@@ -84,7 +84,7 @@ global.renderReposList = ->
 
 # スプラッシュロゴを非表示にする
 global.fadeOutLaunchLogo = ->
-  $('#launch-logo').fadeOut 'normal', ->
+  $('#launch-logo').fadeOut 'fast', ->
     $(this).remove()
     $('#sidebar').removeClass('hide')
     $('#after-launch-view').removeClass('invisible').focus().addClass('active')
