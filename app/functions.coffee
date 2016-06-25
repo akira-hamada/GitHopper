@@ -52,7 +52,7 @@ global.appendRepositories = ->
   for repo in repos
     this.repos.push {
       html_url: "https://github.com/#{repo}",
-      name: repo.split('/')[1],
+      name: repo.split('/')[1] || repo.split('/')[0],
       id: repo.replace('/', '-')
     }
 
