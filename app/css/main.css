@@ -109,7 +109,7 @@ webview { height: 100%; }
   position: absolute;
   right: 0;
   text-align: center;
-  top: 15%;
+  top: 30%;
   width: 320px;
   z-index: 1;
 }
@@ -117,7 +117,7 @@ webview { height: 100%; }
 .launch-icon {
   display: block;
   font-size: 2000%;
-  margin-bottom: 8px;
+  margin: auto auto 45px;
 }
 .launch-text {
   color: lightgray;
