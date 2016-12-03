@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/akira-hamada/GitHub-Repo-Viewer.git"
+    "url": "git+https://github.com/akira-hamada/GitHopper.git"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/akira-hamada/GitHub-Repo-Viewer/issues"
+    "url": "https://github.com/akira-hamada/GitHopper/issues"
   },
-  "homepage": "https://github.com/akira-hamada/GitHub-Repo-Viewer#readme"
+  "homepage": "https://github.com/akira-hamada/GitHopper#readme"
 }
