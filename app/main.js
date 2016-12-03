@@ -74,7 +74,7 @@ function loadAppMenu() {
       label: 'Edit',
       submenu: [
         { label: 'Undo', accelerator: undoShortCut, click: function() { mainWindow.webContents.undo(); } }, // CmdOrCtrl+Z がパッケージしたMacで動作しないための分岐 (TODO linuxやwindowsでの動作確認)
-        { label: 'Undo', accelerator: 'Shift+'+undoShortCut, click: function() { mainWindow.webContents.redo(); } }, // CmdOrCtrl+Z がパッケージしたMacで動作しないための分岐 (TODO linuxやwindowsでの動作確認)
+        { label: 'Redo', accelerator: 'Shift+'+undoShortCut, click: function() { mainWindow.webContents.redo(); } }, // CmdOrCtrl+Z がパッケージしたMacで動作しないための分岐 (TODO linuxやwindowsでの動作確認)
         { type: 'separator' },
         { label: 'Cut', accelerator: 'CmdOrCtrl+X', selector: 'cut:' },
         { label: 'Copy', accelerator: 'CmdOrCtrl+C', selector: 'copy:' },
