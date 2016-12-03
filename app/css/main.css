@@ -211,7 +211,7 @@ webview { height: 100%; }
   bottom: 0;
   color: white;
   display: block;
-  height: 400px;
+  height: 450px;
   padding: 10px 30px;
   left: 0;
   margin: auto;
@@ -229,6 +229,16 @@ webview { height: 100%; }
   margin-bottom: 20px;
 }
 
+.cheat-left {
+  width: 45%;
+  float: left;
+}
+
+.cheat-right {
+  width: 45%;
+  float: right;
+}
+
 .shortcut { margin-bottom: 10px; }
 
 .key {
@@ -242,5 +252,3 @@ webview { height: 100%; }
   text-align: center;
   min-width: 19px;
 }
-
-
