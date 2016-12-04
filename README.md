@@ -20,7 +20,7 @@ IMG4(cheatsheet)
 
 # How to use
 
-1. Install the app
+1. [Download](https://github.com/akira-hamada/GitHopper/releases/download/1.0.0/GitHopper.app.zip) and launch the app
 1. Input [Github access token](https://github.com/settings/tokens)
 1. sign-in for a Github webpage (need this just once)
 1. Done!! You would see your repos list and each Github page content
