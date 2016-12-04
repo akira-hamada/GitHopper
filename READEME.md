@@ -21,8 +21,8 @@ IMG4(cheatsheet)
 # How to use
 
 1. Install the app
-1. Input Get Github access token
-1. sign-in for Github webpages for first time
+1. Input [Github access token](https://github.com/settings/tokens)
+1. sign-in for a Github webpage (need this just once)
 1. Done!! You would see your repos and its pge content
 
 
