@@ -1,7 +1,7 @@
 # GitHopper
 
 GitHub multi repositories viewer application.
-This application is especially useful when you browse multi github repositories, e.g. code review. You don't need to open multi web browser tabs anymore by this app!
+This application is especially useful when you browse multi github repositories, e.g. for code review. You don't need to open multi web browser tabs anymore by this app!
 The app works with [Electron](http://electron.atom.io/).
 
 IMG1(top)
