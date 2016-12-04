@@ -3,7 +3,7 @@ require('./functions.coffee')
 # 特定のクラスが付いたリンクはChromeで開く
 $('.js-open-in-chrome').on 'click', (e) =>
   e.preventDefault()
-  require("shell").openExternal(e.target.href)
+  require('electron').shell.openExternal(e.target.href)
 
 if localStorage.getItem('only_private_repo')?
   $('#only-private-repo').prop('checked',true) if localStorage.getItem('only_private_repo') == '1'
