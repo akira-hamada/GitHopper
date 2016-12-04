@@ -1,5 +1,7 @@
 # GitHopper
 
+[summary written in japanese is here](http://qiita.com/akira-hamada/items/02b6ec3fff42ca3e904a).
+
 GitHub multi repositories viewer application. (Mac only for now)
 This application is especially useful when you browse multi github repositories, e.g. for code review. You don't need to open multi web browser tabs anymore by this app!
 The app works with [Electron](http://electron.atom.io/) 1.2.3.
