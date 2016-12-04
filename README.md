@@ -1,7 +1,7 @@
 # GitHopper
 
 GitHub multi repositories viewer application.
-This application is especially useful when you browse multi github repositories, e.g. code review. You don't need to open multi web browser tabs anymore by this app!
+This application is especially useful when you browse multi github repositories, e.g. for code review. You don't need to open multi web browser tabs anymore by this app!
 The app works with [Electron](http://electron.atom.io/).
 
 IMG1(top)
@@ -11,7 +11,7 @@ IMG4(cheatsheet)
 
 # Features
 
-- Displays your repositories in sidebar. (includes organization's repos you belongs to. this is a option)
+- Displays your repositories in sidebar.
 - You can append any your favorite repos to the sidebar repo list.
 - Switch repos with keyboard shortcut.
 - App remember page state for each repos. (e.g. you see PRs page for a repo. then, you browse other repo's issues page. then, you can see PRs page again when you return to first repo)
