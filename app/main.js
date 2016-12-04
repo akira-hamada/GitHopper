@@ -1,9 +1,5 @@
 //----------------------------------
 // electronアプリの初期化処理
-//
-// アプリのパッケージ方法
-// cd $HOME/code
-// electron-packager --overwrite electron/github-viewer 'GitHopper' --platform=darwin --arch=x64 --version=1.2.3 --icon=electron/github-viewer/icons/githopper_icon_1.icns
 //----------------------------------
 
 const {app, BrowserWindow, Menu} = require('electron');
