@@ -11,7 +11,7 @@ IMG4(cheatsheet)
 
 # Features
 
-- Displays your repositories in sidebar. (includes organization's repos you belongs to. this is a option)
+- Displays your repositories in sidebar.
 - You can append any your favorite repos to the sidebar repo list.
 - Switch repos with keyboard shortcut.
 - App remember page state for each repos. (e.g. you see PRs page for a repo. then, you browse other repo's issues page. then, you can see PRs page again when you return to first repo)
