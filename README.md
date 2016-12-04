@@ -33,3 +33,7 @@ IMG4(cheatsheet)
 - Windows and linux are not checked.
 - Github Enterprise is not supported for now.
 - [some other issues](https://github.com/akira-hamada/GitHopper/issues)
+
+# License
+
+GitHopper is released under the [MIT License](http://www.opensource.org/licenses/MIT).
